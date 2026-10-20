@@ -1,0 +1,139 @@
+{
+  "checked_on": "2026-10-21",
+  "scope": "Steam PC 1.0 and subsequent official patches; not LC1 or mobile",
+  "store": "https://store.steampowered.com/app/2445690/Lost_Castle_2/",
+  "official_announcements": [
+    {
+      "id": "1845383656376230",
+      "title": "🛠️Lost Castle 2 - 1.0.1.3 Update Notes🛠️",
+      "date_utc": "2026-09-30T03:57:50+00:00",
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656376230"
+    },
+    {
+      "id": "1844751498220909",
+      "title": "🛠️Lost Castle 2 - 1.0.1.2 Update Notes🛠️",
+      "date_utc": "2026-09-24T09:59:12+00:00",
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498220909"
+    },
+    {
+      "id": "1842846814445294",
+      "title": "🛠️Lost Castle 2 - 1.0.0.19 Update Notes🛠️",
+      "date_utc": "2026-09-04T04:07:54+00:00",
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842846814445294"
+    },
+    {
+      "id": "1835236783559194",
+      "title": "⚔️Lost Castle 2 1.0 Is Out Now!⚔️",
+      "date_utc": "2026-06-11T04:00:44+00:00",
+      "url": "https://steamcommunity.com/games/2445690/announcements/detail/678498647451632224"
+    },
+    {
+      "id": "1823825466507606",
+      "title": "📖 Prologue To The End – February Update Is Now Live!",
+      "date_utc": "2026-02-10T08:01:35+00:00",
+      "url": "https://steamcommunity.com/games/2445690/announcements/detail/511856483278782601"
+    },
+    {
+      "id": "1819386365108736",
+      "title": "Festive Fighting Friends - December Update OUT NOW!",
+      "date_utc": "2025-12-26T06:00:05+00:00",
+      "url": "https://steamcommunity.com/games/2445690/announcements/detail/533244142396900506"
+    },
+    {
+      "id": "1816215235341941",
+      "title": "🐸 Muddy New Update: Get Dirty or Die in the Mudfish Swamp!🐸",
+      "date_utc": "2025-11-12T06:00:32+00:00",
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1816215235341941"
+    },
+    {
+      "id": "1811772772331812",
+      "title": "🗡️Cutting Edge Update – Katanas Unleashed!",
+      "date_utc": "2025-09-28T05:35:58+00:00",
+      "url": "https://steamcommunity.com/games/2445690/announcements/detail/515222130291376803"
+    },
+    {
+      "id": "1808601382406824",
+      "title": "Lost Castle 2 New Update - The Dungeon Awaits, and 20% OFF On August 21!🏰",
+      "date_utc": "2025-08-20T10:32:02+00:00",
+      "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1808601382406824"
+    },
+    {
+      "id": "1795283637774508",
+      "title": "Lost Castle 2 - Wield the Phantom Lantern! March Update",
+      "date_utc": "2025-03-26T04:02:35+00:00",
+      "url": "https://steamcommunity.com/games/2445690/announcements/detail/834960050863736032"
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "V00",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/1a7b3cd3086710951e070b034caa54bea3df5e26/ss_1a7b3cd3086710951e070b034caa54bea3df5e26.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-00.jpg"
+    },
+    {
+      "id": "V01",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/f01ce8244957cf26a1a4ef03ff696368ef145fc3/ss_f01ce8244957cf26a1a4ef03ff696368ef145fc3.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-01.jpg"
+    },
+    {
+      "id": "V02",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/ss_17be0a623d5f404bde03d55d31e299de7f122d1d.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-02.jpg"
+    },
+    {
+      "id": "V03",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/ss_2743dda05c040097efc9c4ecbf7e8199d2ba052d.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-03.jpg"
+    },
+    {
+      "id": "V04",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/ss_73d6b8806d24993b156521807b4fab27614e7d9d.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-04.jpg"
+    },
+    {
+      "id": "V05",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/ss_aa08e8ae7cea774a66183d9cc1ec9afddcae313d.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-05.jpg"
+    },
+    {
+      "id": "V06",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/ss_8d1df40636f22a4efd402a43632d9d7b1fb4f754.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-06.jpg"
+    },
+    {
+      "id": "V07",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/8b37ebab1e5482bacb3a88f532cafb870ed27e27/ss_8b37ebab1e5482bacb3a88f532cafb870ed27e27.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-07.jpg"
+    },
+    {
+      "id": "V08",
+      "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445690/b58c64056de1fef56cdd0ab1d039bd7634d2d6b2/ss_b58c64056de1fef56cdd0ab1d039bd7634d2d6b2.1920x1080.jpg?t=1791450661",
+      "private_cache_file": "official-08.jpg"
+    }
+  ],
+  "video": {
+    "official": {
+      "id": 257254533,
+      "name": "LostCastle2_Trailor03_EN",
+      "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257254533/67a9987fd8e0728e2eb6ecce217e4d8a4270d52e/movie_600x337.jpg?t=1781149717",
+      "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/2445690/2064896727/4b076e6bf7e2f7e17112edba1db065ec0a963ba1/1778758696/dash_av1.mpd?t=1781149717",
+      "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/2445690/2064896727/4b076e6bf7e2f7e17112edba1db065ec0a963ba1/1778758696/dash_h264.mpd?t=1781149717",
+      "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/2445690/2064896727/4b076e6bf7e2f7e17112edba1db065ec0a963ba1/1778758696/hls_264_master.m3u8?t=1781149717",
+      "highlight": true
+    },
+    "player_run": "https://www.bilibili.com/video/BV1rKEi6SEjy/",
+    "player_run_p1_sample_seconds": [
+      90,
+      400,
+      900,
+      1300,
+      1400,
+      2000,
+      2798,
+      2800,
+      3550
+    ],
+    "inspection": "Silent still and short consecutive-frame sampling. Not a personally played run and not a continuous viewing of all 11 parts."
+  },
+  "private_cache": "/Users/Admin/.codex/tmp/mist-lantern-reference-20261021"
+}
