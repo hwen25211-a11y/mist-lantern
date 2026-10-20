@@ -9,6 +9,7 @@
 - `Assets/Resources/Models`：三种武器猎人、四类普通敌人与三位首领。
 - `Assets/Resources/Stages`：旧桥、庭院、钟楼环境。
 - 分部件动作逻辑在 `Presentation.cs`，可在模型层级中编辑 Head、ArmL、ArmR、LegL、LegR 和 Weapon。
+- `Assets/Scenes/ModelGallery.unity` 是单独的模型陈列场景，编辑器中无需运行游戏即可查看三种猎人、四类普通敌人与三位首领。
 
 模型不是由标题插画自动转换。建模方式是原创程序化几何与部件组装，动作是程序驱动，并非外包手工雕刻或第三方绑定动画。用于课程展示时应如实注明。
 

@@ -1,0 +1,350 @@
+[
+  {
+    "level": "log",
+    "message": "navigator.mediaDevices support available",
+    "timestamp": "2026-10-20T13:48:19.951Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-20T13:48:20.118Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-20T13:48:20.121Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "[PhysX] Initialized SinglethreadedTaskDispatcher.\n",
+    "timestamp": "2026-10-20T13:48:20.148Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-20T13:48:20.150Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 2022.3.62f3c1 (1623fc0bbb97)\n",
+    "timestamp": "2026-10-20T13:48:20.155Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-20T13:48:20.156Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-20T13:48:20.169Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-20T13:48:20.169Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-20T13:48:20.169Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-20T13:48:20.169Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_render_snorm EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_mirror_clamp_to_edge EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_draw_buffers_indexed OES_sample_variables OES_shader_multisample_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_pvrtc WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode WEBGL_provoking_vertex WEBGL_render_shared_exponent WEBGL_stencil_texturing GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_\n",
+    "timestamp": "2026-10-20T13:48:20.170Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_render_snorm GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_KHR_parallel_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_draw_buffers_indexed GL_OES_sample_variables GL_OES_shader_multisample_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_pvrtc GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode GL_WEBGL_provoking_vertex GL_WEBGL_render_shared_exponent GL_WEBGL_stencil_texturing\n",
+    "timestamp": "2026-10-20T13:48:20.170Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-20T13:48:20.174Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Input Manager initialize...\n",
+    "timestamp": "2026-10-20T13:48:20.223Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "[PhysX] Initialized SinglethreadedTaskDispatcher.\n",
+    "timestamp": "2026-10-20T13:48:20.231Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 2.900000 ms\n",
+    "timestamp": "2026-10-20T13:48:20.231Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:8920/Build/WebGL.data' successfully downloaded and stored in the indexedDB cache",
+    "timestamp": "2026-10-20T13:48:20.391Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-20T13:48:57.403Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Reward hp=131.0 kills=42\n",
+    "timestamp": "2026-10-20T13:48:57.405Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 37.254 seconds.",
+    "timestamp": "2026-10-20T13:48:57.445Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Route hp=151.0 kills=42\n",
+    "timestamp": "2026-10-20T13:49:22.485Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Playing hp=151.0 kills=42\n",
+    "timestamp": "2026-10-20T13:49:22.701Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Reward hp=103.0 kills=52\n",
+    "timestamp": "2026-10-20T13:49:34.618Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Reward hp=103.0 kills=52\n",
+    "timestamp": "2026-10-20T13:50:02.334Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Route hp=103.0 kills=52\n",
+    "timestamp": "2026-10-20T13:50:21.033Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=9 phase=Rest hp=103.0 kills=52\n",
+    "timestamp": "2026-10-20T13:50:21.351Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=9 phase=Route hp=158.0 kills=52\n",
+    "timestamp": "2026-10-20T13:51:00.285Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Playing hp=158.0 kills=52\n",
+    "timestamp": "2026-10-20T13:51:00.499Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Playing hp=92.0 kills=63\n",
+    "timestamp": "2026-10-20T13:51:34.967Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Reward hp=92.0 kills=64\n",
+    "timestamp": "2026-10-20T13:51:35.968Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Route hp=92.0 kills=64\n",
+    "timestamp": "2026-10-20T13:52:06.035Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Playing hp=92.0 kills=64\n",
+    "timestamp": "2026-10-20T13:52:06.234Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Won hp=104.0 kills=65\n",
+    "timestamp": "2026-10-20T13:52:21.819Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Won hp=104.0 kills=65\n",
+    "timestamp": "2026-10-20T13:52:43.517Z",
+    "url": "http://127.0.0.1:8920/Build/WebGL.framework.js"
+  }
+]

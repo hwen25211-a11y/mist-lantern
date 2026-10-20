@@ -1,0 +1,36 @@
+[
+  {
+    "file": "index.html",
+    "bytes": 3606,
+    "mime": "text/html",
+    "sha256": "0cb3574235983bbcfc6ea9b5e2050b5dae71fe282621cce4ec5bb402801f7e08"
+  },
+  {
+    "file": "Build/WebGL.loader.js",
+    "bytes": 20680,
+    "mime": "text/javascript",
+    "sha256": "95d413ec942c6764ee89174a13da7a4c7f80567f6a4fb43992a6e8273c3b93d2"
+  },
+  {
+    "file": "Build/WebGL.framework.js",
+    "bytes": 373712,
+    "mime": "text/javascript",
+    "sha256": "55687e99c4c50a6d592e12a97c9c6fdec5260dd2db0bf337b72e3375d2609d72"
+  },
+  {
+    "file": "Build/WebGL.data",
+    "bytes": 12812613,
+    "mime": "application/octet-stream",
+    "sha256": "ba814e500277216988ba90ead573e9b3c29aaf89478ee599b46fab038d4a5974"
+  },
+  {
+    "file": "Build/WebGL.wasm",
+    "bytes": 15588618,
+    "mime": "application/wasm",
+    "sha256": "7ffe42f28e34488997da4cac65d19ccc0d2c5b4875ccd7a76dc13d551e2ded6f"
+  },
+  {
+    "same_origin_reuse": true,
+    "unrelated_port_rejected": true
+  }
+]

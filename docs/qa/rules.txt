@@ -1,0 +1,45 @@
+PASS new run enters first battle
+PASS seed reproduces full room
+PASS diagonal movement normalized
+PASS arena boundaries
+PASS invulnerable prevents damage
+PASS damage changes actual health
+PASS potion heals and consumes once
+PASS full health does not waste potion
+PASS empty oil switches to dark
+PASS insufficient oil cannot relight
+PASS relight when oil available
+PASS rectangular warning uses depth
+PASS circle damage matches circle
+PASS reward choices unique
+PASS health relic applies immediately
+PASS cannot double claim
+PASS first battle leads to camp
+PASS camp weapon swap
+PASS camp choice is exclusive
+PASS elite route
+PASS complete run save roundtrip
+PASS broken save rejected
+PASS out of range save rejected
+PASS settlement idempotent
+PASS complete seed=7 weapon=0 phase=Won room=11 hp=120 time=127.5032
+PASS all rooms and one final settlement 7/0
+PASS complete seed=42 weapon=0 phase=Won room=11 hp=140 time=120.3027
+PASS all rooms and one final settlement 42/0
+PASS complete seed=2026 weapon=0 phase=Won room=11 hp=140 time=168.1557
+PASS all rooms and one final settlement 2026/0
+PASS complete seed=7 weapon=1 phase=Won room=11 hp=96 time=123.3529
+PASS all rooms and one final settlement 7/1
+PASS complete seed=42 weapon=1 phase=Won room=11 hp=140 time=97.60136
+PASS all rooms and one final settlement 42/1
+PASS complete seed=2026 weapon=1 phase=Won room=11 hp=140 time=143.8042
+PASS all rooms and one final settlement 2026/1
+PASS complete seed=7 weapon=2 phase=Won room=11 hp=120 time=127.9032
+PASS all rooms and one final settlement 7/2
+PASS complete seed=42 weapon=2 phase=Won room=11 hp=120 time=124.053
+PASS all rooms and one final settlement 42/2
+PASS complete seed=2026 weapon=2 phase=Won room=11 hp=120 time=210.4582
+PASS all rooms and one final settlement 2026/2
+PASS idle player dies without softlock
+PASS loss settles currency
+RULES_OK assertions=44
