@@ -1,0 +1,6 @@
+Harbour Notebook Sans: static weight-500 derivative of Noto Sans SC, renamed under OFL.
+Source: https://github.com/google/fonts/tree/main/ofl/notosanssc
+License: OFL.txt. Reused from harbour-year with the full covered CJK range and new UI glyphs.
+The inherited font internal name is retained, but the game font asset is Potato SDF.
+To regenerate: install fontTools, use Tools/get_font.py and Tools/prepare_font.py,
+then run the Unity Prepare menu. The downloaded full variable font stays ignored in Tools.

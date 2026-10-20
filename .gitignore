@@ -1,0 +1,14 @@
+/Library/
+/Temp/
+/Logs/
+/obj/
+/UserSettings/
+/Build/
+/release/
+*.csproj
+*.sln
+*.log
+.DS_Store
+__pycache__/
+.env
+.env.*
