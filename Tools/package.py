@@ -32,7 +32,7 @@ for folder in ["Assets", "Packages", "ProjectSettings", "Tools", "docs", "Licens
     for p in (root / folder).rglob("*"):
         if p.is_file() and p.suffix not in [".log", ".pyc"] and "__pycache__" not in p.parts:
             source.append((p, "雾灯遗城-Unity源码/" + str(p.relative_to(root))))
-for name in ["README.md", ".gitignore"]:
+for name in ["README.md", ".gitignore", ".gitattributes"]:
     source.append((root/name, "雾灯遗城-Unity源码/"+name))
 checks = [pack("雾灯遗城-v0.1.0-Unity源码.zip", source)]
 app = root / "Build/macOS/雾灯遗城.app"

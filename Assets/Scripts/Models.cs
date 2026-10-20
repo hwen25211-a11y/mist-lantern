@@ -9,6 +9,7 @@ namespace Mist
         public static readonly Color Teal=Hex("397A81"), Gold=Hex("C79A51"), Ember=Hex("FFD293"), Red=Hex("AD5449"), Dark=Hex("142937"), Bone=Hex("D8D4BB");
         static readonly Dictionary<string,Material> materials=new Dictionary<string,Material>();
         static Mesh bevel;
+        static Mesh effectSphere,effectCylinder;
         public static Color Hex(string s){Color c;ColorUtility.TryParseHtmlString("#"+s,out c);return c;}
         public static Material Mat(Color color,bool glow=false)
         {
@@ -29,6 +30,26 @@ namespace Mist
         }
         public static GameObject Primitive(string name,Transform parent,PrimitiveType type,Vector3 pos,Vector3 scale,Color col,bool glow=false)
         {
+            if(Application.isPlaying)
+            {
+                // Visual effects never require Physics components. CreatePrimitive would ask
+                // IL2CPP for unused collider types that can legitimately be stripped.
+                Mesh mesh;
+                if(type==PrimitiveType.Sphere)
+                {
+                    if(!effectSphere)
+                    {
+                        var rings=new Vector2[13];
+                        for(int i=0;i<13;i++){float a=i*Mathf.PI/12;rings[i]=new Vector2(Mathf.Sin(a)*.5f,-Mathf.Cos(a)*.5f);}
+                        effectSphere=Lathe(rings,16);
+                    }
+                    mesh=effectSphere;
+                }
+                else if(type==PrimitiveType.Cylinder)
+                {if(!effectCylinder)effectCylinder=Lathe(new[]{new Vector2(.5f,-1),new Vector2(.5f,1)},32);mesh=effectCylinder;}
+                else mesh=BevelCube();
+                return MeshPart(name,parent,mesh,pos,scale,col,glow);
+            }
             var g=GameObject.CreatePrimitive(type);g.name=name;g.transform.SetParent(parent,false);g.transform.localPosition=pos;g.transform.localScale=scale;
             var c=g.GetComponent<Collider>();if(Application.isPlaying)Object.Destroy(c);else Object.DestroyImmediate(c);
             g.GetComponent<Renderer>().sharedMaterial=Mat(col,glow);return g;

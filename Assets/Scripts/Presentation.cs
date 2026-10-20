@@ -80,7 +80,8 @@ namespace Mist
             {
                 if(i>=dangerModels.Count)
                 {
-                    var g=GameObject.CreatePrimitive(PrimitiveType.Cylinder);Destroy(g.GetComponent<Collider>());g.name="Attack warning";g.transform.SetParent(fx);dangerModels.Add(g);
+                    var g=Models.MeshPart("Attack warning",fx,Models.Lathe(new[]{new Vector2(1,0),new Vector2(1,.01f)},48),Vector3.zero,Vector3.one,Models.Red);
+                    g.GetComponent<MeshFilter>().sharedMesh.name="WarningDisc";dangerModels.Add(g);
                 }
                 var h=s.dangers[i];var o=dangerModels[i];o.SetActive(true);
                 var mf=o.GetComponent<MeshFilter>();

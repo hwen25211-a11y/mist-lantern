@@ -6,6 +6,7 @@ UNITY_BIN="${UNITY_BIN:-/Applications/Unity/Hub/Editor/2022.3.62f3c1/Unity.app/C
 case "${1:-mac}" in
  prepare) method=Mist.Editor.BuildGame.Prepare; flags=(-quit -nographics) ;;
  models) method=Mist.Editor.BuildGame.GenerateModels; flags=(-quit -nographics) ;;
+ gallery) method=Mist.Editor.BuildGame.Gallery; flags=(-quit) ;;
  mac) method=Mist.Editor.BuildGame.Mac; flags=(-quit -nographics) ;;
  web) method=Mist.Editor.BuildGame.Web; flags=(-quit -nographics) ;;
  checks) method=Mist.Editor.RuleChecks.Run; flags=(-quit -nographics) ;;

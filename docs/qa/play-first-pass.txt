@@ -1,0 +1,44 @@
+PASS test uses separate save and zero audio
+OVERFLOW 01-title Title 雾灯遗城
+UI 01-title overflow=1
+PASS button Guide
+PASS actual UI raycast Guide
+UI 02-guide overflow=0
+PASS button Back
+PASS actual UI raycast Back
+PASS button Workshop
+PASS actual UI raycast Workshop
+UI 03-workshop overflow=0
+PASS button Back
+PASS actual UI raycast Back
+PASS button New
+PASS actual UI raycast New
+PASS button Weapon0
+PASS actual UI raycast Weapon0
+UI 04-loadout-0 overflow=0
+PASS button Begin
+PASS actual UI raycast Begin
+PASS loadout chooses real weapon 0
+OVERFLOW 05-gameplay-0 SkillKey Q 灯态   F 药水
+OVERFLOW 05-gameplay-0 OilHUD 灯油 99 / 100    技能消耗 35    武器技已就绪    击败 0
+OVERFLOW 05-gameplay-0 Keys WASD 移动    J 连击    K 闪避    Space 跳跃    L 武器技
+OVERFLOW 05-gameplay-0 WeaponHUD 逐雾弯刀
+OVERFLOW 05-gameplay-0 Room 暮色旧桥   1 / 12
+UI 05-gameplay-0 overflow=5
+PASS button Pause
+PASS actual UI raycast Pause
+PASS pause freezes combat 0
+OVERFLOW 06-pause-0 SkillKey Q 灯态   F 药水
+OVERFLOW 06-pause-0 OilHUD 灯油 99 / 100    技能消耗 35    武器技已就绪    击败 0
+OVERFLOW 06-pause-0 Keys WASD 移动    J 连击    K 闪避    Space 跳跃    L 武器技
+OVERFLOW 06-pause-0 WeaponHUD 逐雾弯刀
+OVERFLOW 06-pause-0 Room 暮色旧桥   1 / 12
+UI 06-pause-0 overflow=5
+PASS button SaveTitle
+PASS actual UI raycast SaveTitle
+PASS button Continue
+PASS actual UI raycast Continue
+FAILED System.Exception: UI save and continue exact state 0
+  at Mist.Editor.PlayRunner.Check (System.Boolean ok, System.String label) [0x00020] in /Users/Admin/Documents/Code/projects/19/Assets/Editor/PlayChecks.cs:34 
+  at Mist.Editor.PlayRunner+<Probe>d__13.MoveNext () [0x004cb] in /Users/Admin/Documents/Code/projects/19/Assets/Editor/PlayChecks.cs:106 
+  at Mist.Editor.PlayRunner+<Start>d__11.MoveNext () [0x000e7] in /Users/Admin/Documents/Code/projects/19/Assets/Editor/PlayChecks.cs:69 
