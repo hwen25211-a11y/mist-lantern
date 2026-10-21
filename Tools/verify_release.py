@@ -35,8 +35,8 @@ for folder, glob in [("Assets/Scripts", "*.cs"), ("Assets/Shaders", "*.shader")]
 wasm = next((root / "Build/WebGL/Build").glob("*.wasm"))
 data_file = next((root / "Build/WebGL/Build").glob("*.data"))
 # Unity copies the HTML template with its original timestamp; compare compiled artifacts instead.
-assert max((root / p).stat().st_mtime for p in sources if p.endswith(".cs")) <= wasm.stat().st_mtime
-assert max((root / p).stat().st_mtime for p in sources if p.endswith(".shader")) <= data_file.stat().st_mtime
+prior_path = qa / "release-verification.json"
+prior = json.loads(prior_path.read_text()) if prior_path.exists() else {}
 
 http = []
 web = root / "Build/WebGL"
@@ -52,6 +52,13 @@ for file in [web / "index.html"] + sorted((web / "Build").glob("*")):
         assert mime == "application/wasm"
     http.append({"file": relative, "bytes": len(data), "mime": mime,
                  "sha256": hashlib.sha256(data).hexdigest()})
+
+# Git checkout changes source mtimes without changing content. Reuse a previously
+# verified identity only when both source hashes and actual build bytes still match.
+same_identity = prior.get("source_sha256") == sources and prior.get("http") == http
+if not same_identity:
+    assert max((root / p).stat().st_mtime for p in sources if p.endswith(".cs")) <= wasm.stat().st_mtime
+    assert max((root / p).stat().st_mtime for p in sources if p.endswith(".shader")) <= data_file.stat().st_mtime
 
 result = {"version": version, "source_sha256": sources, "http": http,
           "native_win_seed": native["run"]["seed"], "checks_passed": True}
