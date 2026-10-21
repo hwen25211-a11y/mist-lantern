@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "source_sha256": {
+    "Assets/Scripts/Game.cs": "ee8192a92eb3a0ec85c4d63328e357d1128eb0276c901e52bf8431e12caa0066",
+    "Assets/Scripts/Rules.cs": "06c21f38a86ff393ee84169faa19dc93e7f008ed741abcc89ae34dc3cf1c89c5",
+    "Assets/Scripts/Models.cs": "9d61ed707f09768df22d2510c23dbfea2033aa0a3f29392a000b5eb0efb137ab",
+    "Assets/Scripts/Presentation.cs": "cb1fec52721a42cbc23a25c80990aeb9269ace476a5881f0159090d7c4f2e590",
+    "Assets/Scripts/Art.cs": "6dffd4966e6f28d83111e714d83075a9ddb8ee11c2726110a408ea9409635158",
+    "Assets/Shaders/Ink.shader": "fc57da422ae8d90d9e89ddba8d23a28a6de75c64446339d128550cabf9891f02",
+    "Assets/Shaders/Ground.shader": "44848e4e2542987188c0d66abb84d662b39f91f931231547c78bb9419d4b039d",
+    "Assets/Shaders/SoftFX.shader": "291d6db82eac6b38cf7f71a43a8de917c9762844aafba3bc4eee58a81bc22dff"
+  },
+  "http": [
+    {
+      "file": "index.html",
+      "bytes": 3630,
+      "mime": "text/html",
+      "sha256": "11db37b46e9ebda71e086abe83122f9bcea3ae43b25d6d156e49a661af1c0d55"
+    },
+    {
+      "file": "Build/WebGL.data",
+      "bytes": 17532818,
+      "mime": "application/octet-stream",
+      "sha256": "d9722a6a737316661de8db9e819fc219c13a9e33afb2b567adcc9d9f2dbe78eb"
+    },
+    {
+      "file": "Build/WebGL.framework.js",
+      "bytes": 374606,
+      "mime": "text/javascript",
+      "sha256": "90a349501821cafa7445db96dc897a6ced6f39103f4c8a09caa2122c8934b547"
+    },
+    {
+      "file": "Build/WebGL.loader.js",
+      "bytes": 20680,
+      "mime": "text/javascript",
+      "sha256": "95d413ec942c6764ee89174a13da7a4c7f80567f6a4fb43992a6e8273c3b93d2"
+    },
+    {
+      "file": "Build/WebGL.wasm",
+      "bytes": 15720997,
+      "mime": "application/wasm",
+      "sha256": "bda88ec5f68f3a9f454b4bda680b9eb185b2a46b1604b6e31c34d625f65d8ade"
+    }
+  ],
+  "native_win_seed": 363002796,
+  "checks_passed": true
+}

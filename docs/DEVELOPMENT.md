@@ -7,11 +7,12 @@ Unity 版本固定为 2022.3.62f3c1；用 Unity Hub 打开项目根目录。
 | 文件 | 职责 |
 | --- | --- |
 | Rules.cs | 随机种子、战斗、敌人、危险区域、房间流程、遗物、存档 |
-| Models.cs | 原创可复现模型生成 |
+| Models.cs / Art.cs | 网格工具、角色与场景制作、关节渲染合并 |
 | Presentation.cs | 场景、模型动作、打击反馈、声音、UI 基础组件 |
 | Game.cs | 实际输入、界面与保存生命周期 |
 | Editor/BuildGame.cs | 字体、Prefab、场景和构建 |
 | Editor/RuleChecks.cs | 规则与多武器完整路线检查 |
+| Editor/CombatChecks.cs | 动作时序、格挡、光区、蓄力、贯穿与输入缓冲回归 |
 | Editor/PlayChecks.cs | 实际 Unity 场景与 EventSystem 交互检查 |
 
 ## Git

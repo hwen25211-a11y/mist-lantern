@@ -1,0 +1,121 @@
+{
+  "screen": "won",
+  "paused": false,
+  "muted": true,
+  "run": {
+    "version": 2,
+    "seed": 363002796,
+    "room": 11,
+    "weapon": 2,
+    "kills": 57,
+    "potions": 3,
+    "earned": 66,
+    "nextId": 57,
+    "combo": 3,
+    "rewardCount": 0,
+    "wave": 1,
+    "waves": 1,
+    "maxHp": 140,
+    "random": 2840769346,
+    "hp": 114.0,
+    "oil": 85.86714935302734,
+    "elapsed": 76.86579895019531,
+    "attackCd": 0.11332753300666809,
+    "dodgeCd": 0.0,
+    "dodgeTime": 0.0,
+    "invulnerable": 0.0,
+    "skillCd": 2.5332746505737305,
+    "jump": 0.0,
+    "jumpVelocity": 0.0,
+    "comboClock": 1.1833277940750122,
+    "swing": 0.09666013717651367,
+    "skillFlash": 0.0,
+    "pos": {
+      "x": -6.0,
+      "y": 0.0
+    },
+    "direction": {
+      "x": 0.9701424837112427,
+      "y": -0.24253568053245544
+    },
+    "dodgeDir": {
+      "x": 1.0,
+      "y": 0.0
+    },
+    "lampPos": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "attackDirection": {
+      "x": 0.9701424837112427,
+      "y": -0.24253568053245544
+    },
+    "actionAge": 0.3333398699760437,
+    "actionDuration": 0.4300000071525574,
+    "windup": 0.11999999731779099,
+    "hitStop": 0.0,
+    "guardTime": 0.0,
+    "guardCooldown": 0.0,
+    "lampCooldown": 0.0,
+    "charge": 0.0,
+    "resource": 18.0,
+    "hurtFlash": 0.0,
+    "skillBuffer": 0.0,
+    "dodgeBuffer": 0.0,
+    "actionResolved": true,
+    "skillAction": false,
+    "guarding": false,
+    "lampPlaced": false,
+    "perfectGuards": 0,
+    "bright": false,
+    "elite": false,
+    "settled": true,
+    "phase": 5,
+    "relics": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    "offers": [
+      11,
+      6,
+      10
+    ],
+    "enemies": [
+      {
+        "id": 57,
+        "kind": 6,
+        "pos": {
+          "x": -2.122709035873413,
+          "y": -0.9693229794502258
+        },
+        "hp": 0.0,
+        "maxHp": 1480.0,
+        "clock": 1.149999976158142,
+        "stun": 0.0,
+        "flash": 0.1833343803882599,
+        "shadow": true,
+        "facing": -1.0,
+        "action": 0.03329271078109741,
+        "actionDuration": 1.100000023841858,
+        "recovery": 0.5832931399345398,
+        "moveIndex": 2,
+        "target": {
+          "x": -6.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "dangers": [],
+    "bolts": []
+  }
+}

@@ -199,7 +199,7 @@ V02—V06 的森林与遗迹、V07—V08 的荒漠，可以直接看到不同的
 | 创新表达 | 明暗主要影响油量和伤害倍率 | 核心主题没有充分变成战场决策 | 光区、敌人行为、场景交互共同参与 |
 | 验收 | 规则、流程与 UI 检查多，模型和动作质量缺少门槛 | 功能可运行被误当成可以交付 | 加入游戏画面和完整动作录像验收 |
 
-源码位置：[Rules.cs](../../Assets/Scripts/Rules.cs)、[Presentation.cs](../../Assets/Scripts/Presentation.cs)。旧版截图：[战斗](../screenshots/web-melee-action.jpg)、[完整流程结算](../screenshots/web-complete-victory.jpg)、[模型展示](../screenshots/model-gallery.png)。
+源码位置：[Rules.cs](../../Assets/Scripts/Rules.cs)、[Presentation.cs](../../Assets/Scripts/Presentation.cs)。旧版截图：[战斗](../screenshots/web-melee-action.jpg)、[完整流程结算](../screenshots/web-complete-victory.jpg)、[模型展示](../screenshots/v0.1-model-gallery.png)。
 
 ## 九 雾灯遗城应怎样保留自己的主题
 

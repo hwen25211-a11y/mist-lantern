@@ -16,7 +16,7 @@ namespace Mist
             string key=ColorUtility.ToHtmlStringRGBA(color)+(glow?"g":"");
             Material m;
             if(materials.TryGetValue(key,out m)&&m)return m;
-            m=new Material(Shader.Find("Standard")){name="Mist_"+key,color=color};
+            m=new Material(Shader.Find("Mist/Ink")){name="Mist_"+key,color=color};
             m.SetFloat("_Glossiness",.16f);m.SetFloat("_Metallic",0);
             if(glow){m.EnableKeyword("_EMISSION");m.SetColor("_EmissionColor",color*1.4f);}
             materials[key]=m;return m;
@@ -80,7 +80,7 @@ namespace Mist
             for(int i=0;i<sides;i++)for(int j=0;j<6;j++)
             {float a=i*2*Mathf.PI/sides,b=j*2*Mathf.PI/6;v.Add(new Vector3((r+thick*Mathf.Cos(b))*Mathf.Cos(a),thick*Mathf.Sin(b),(r+thick*Mathf.Cos(b))*Mathf.Sin(a)));}
             for(int i=0;i<sides;i++)for(int j=0;j<6;j++)
-            {int a=i*6+j,b=((i+1)%sides)*6+j,c=i*6+(j+1)%6,d=((i+1)%sides)*6+(j+1)%6;t.AddRange(new[]{a,b,c,b,d,c});}
+            {int a=i*6+j,b=((i+1)%sides)*6+j,c=i*6+(j+1)%6,d=((i+1)%sides)*6+(j+1)%6;t.AddRange(new[]{a,c,b,b,c,d});}
             return Finish("Copper ring",v,t);
         }
         public static Mesh BevelCube()
@@ -156,7 +156,8 @@ namespace Mist
             var ring=Ring("Handle",r.transform,new Vector3(0,.78f,0),.1f,.022f,Gold);ring.transform.localEulerAngles=new Vector3(90,0,0);
             return r;
         }
-        public static GameObject Character(int kind=-1,int weapon=0)
+        public static GameObject Character(int kind=-1,int weapon=0){var model=Art.Character(kind,weapon);Art.Optimize(model);return model;}
+        static GameObject LegacyCharacter(int kind=-1,int weapon=0)
         {
             var r=Root(kind<0?"Hunter":Catalog.EnemyNames[Mathf.Min(kind,6)]);
             var rig=Root("Rig",r.transform).transform;
@@ -257,7 +258,8 @@ namespace Mist
                 block.transform.localEulerAngles=new Vector3(0,0,a*Mathf.Rad2Deg+90);
             }
         }
-        public static GameObject Stage(int area)
+        public static GameObject Stage(int area){return Art.Stage(area);}
+        static GameObject LegacyStage(int area)
         {
             var root=Root("Environment");var r=root.transform;
             Color stone=area==0?Hex("465665"):area==1?Hex("426463"):Hex("505365");

@@ -1,0 +1,167 @@
+{
+  "screen": "pause",
+  "paused": true,
+  "muted": true,
+  "run": {
+    "version": 2,
+    "seed": 71987706,
+    "room": 0,
+    "weapon": 0,
+    "kills": 0,
+    "potions": 3,
+    "earned": 0,
+    "nextId": 3,
+    "combo": 0,
+    "rewardCount": 0,
+    "wave": 1,
+    "waves": 2,
+    "maxHp": 132,
+    "random": 131926423,
+    "hp": 132.0,
+    "oil": 98.37627410888672,
+    "elapsed": 0.4986041486263275,
+    "attackCd": 0.0,
+    "dodgeCd": 0.0,
+    "dodgeTime": 0.0,
+    "invulnerable": 0.301395982503891,
+    "skillCd": 0.0,
+    "jump": 0.0,
+    "jumpVelocity": 0.0,
+    "comboClock": -0.4986041486263275,
+    "swing": 0.0,
+    "skillFlash": 0.0,
+    "pos": {
+      "x": -3.8353869915008545,
+      "y": 0.0
+    },
+    "direction": {
+      "x": 1.0,
+      "y": 0.0
+    },
+    "dodgeDir": {
+      "x": 1.0,
+      "y": 0.0
+    },
+    "lampPos": {
+      "x": -6.0,
+      "y": 0.0
+    },
+    "attackDirection": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "actionAge": 0.0,
+    "actionDuration": 0.0,
+    "windup": 0.0,
+    "hitStop": 0.0,
+    "guardTime": 0.0,
+    "guardCooldown": 0.0,
+    "lampCooldown": 0.0,
+    "charge": 0.0,
+    "resource": 0.0,
+    "hurtFlash": 0.0,
+    "skillBuffer": 0.0,
+    "dodgeBuffer": 0.0,
+    "actionResolved": false,
+    "skillAction": false,
+    "guarding": false,
+    "lampPlaced": true,
+    "perfectGuards": 0,
+    "bright": true,
+    "elite": false,
+    "settled": false,
+    "phase": 0,
+    "relics": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "offers": [
+      0,
+      0,
+      0
+    ],
+    "enemies": [
+      {
+        "id": 1,
+        "kind": 0,
+        "pos": {
+          "x": 1.0923246145248413,
+          "y": -1.7299880981445312
+        },
+        "hp": 72.0,
+        "maxHp": 72.0,
+        "clock": 1.0013957023620605,
+        "stun": 0.0,
+        "flash": 0.0,
+        "shadow": true,
+        "facing": -1.0,
+        "action": 0.0,
+        "actionDuration": 0.0,
+        "recovery": 0.0,
+        "moveIndex": 0,
+        "target": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "id": 2,
+        "kind": 1,
+        "pos": {
+          "x": 3.726884126663208,
+          "y": 0.0
+        },
+        "hp": 105.0,
+        "maxHp": 105.0,
+        "clock": 1.3713957071304321,
+        "stun": 0.0,
+        "flash": 0.0,
+        "shadow": false,
+        "facing": -1.0,
+        "action": 0.0,
+        "actionDuration": 0.0,
+        "recovery": 0.0,
+        "moveIndex": 0,
+        "target": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "id": 3,
+        "kind": 1,
+        "pos": {
+          "x": 6.136735439300537,
+          "y": 1.885431170463562
+        },
+        "hp": 105.0,
+        "maxHp": 105.0,
+        "clock": 1.7413957118988037,
+        "stun": 0.0,
+        "flash": 0.0,
+        "shadow": false,
+        "facing": -1.0,
+        "action": 0.0,
+        "actionDuration": 0.0,
+        "recovery": 0.0,
+        "moveIndex": 0,
+        "target": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "dangers": [],
+    "bolts": []
+  }
+}

@@ -19,6 +19,11 @@ namespace Mist.Editor
         public static void Prepare()
         {
             Directory.CreateDirectory("docs/qa");AssetDatabase.Refresh();
+            foreach(var shaderName in new[]{"Mist/SoftFX","Unlit/Texture"})
+            {
+                string mp="Assets/Resources/Art/"+shaderName.Replace("/","-")+".mat";
+                if(!AssetDatabase.LoadAssetAtPath<Material>(mp))AssetDatabase.CreateAsset(new Material(Shader.Find(shaderName)),mp);
+            }
             const string fontPath="Assets/Resources/Fonts/Mist SDF.asset";
             var font=AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(fontPath);
             if(!font)
@@ -34,6 +39,8 @@ namespace Mist.Editor
             EditorUtility.SetDirty(font);
             var a=AssetImporter.GetAtPath("Assets/Resources/Art/Title.png") as TextureImporter;
             if(a){a.textureType=TextureImporterType.Default;a.maxTextureSize=2048;a.mipmapEnabled=false;a.textureCompression=TextureImporterCompression.CompressedHQ;a.SaveAndReimport();}
+            foreach(var path in new[]{"Assets/Resources/Art/Worlds-v2.png","Assets/Resources/Art/Ground-v2.png","Assets/Resources/Art/Relics-v3.png"}) {
+                var ti=AssetImporter.GetAtPath(path) as TextureImporter;if(ti){ti.maxTextureSize=2048;ti.mipmapEnabled=false;ti.wrapMode=TextureWrapMode.Clamp;ti.textureCompression=TextureImporterCompression.CompressedHQ;ti.SaveAndReimport();}}
             if(!File.Exists("Assets/Resources/Models/Hunter0.prefab"))GenerateModels();
             if(!File.Exists(Scene))
             {
@@ -41,7 +48,7 @@ namespace Mist.Editor
                 new GameObject("Mist Lantern scene marker");EditorSceneManager.SaveScene(scene,Scene);
             }
             EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(Scene,true)};
-            PlayerSettings.companyName="Mist Lantern Studio";PlayerSettings.productName="雾灯遗城";PlayerSettings.bundleVersion="0.1.0";
+            PlayerSettings.companyName="Mist Lantern Studio";PlayerSettings.productName="雾灯遗城";PlayerSettings.bundleVersion="1.0.0";
             PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Standalone,"com.MistLantern.Game");
             PlayerSettings.defaultScreenWidth=1440;PlayerSettings.defaultScreenHeight=810;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;PlayerSettings.resizableWindow=true;
             PlayerSettings.runInBackground=false;PlayerSettings.colorSpace=ColorSpace.Gamma;

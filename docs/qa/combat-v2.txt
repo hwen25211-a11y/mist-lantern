@@ -1,0 +1,35 @@
+PASS press begins windup without instant damage
+PASS damage begins at active frame
+PASS one strike does not repeatedly hit one target
+PASS one skill tap during normal attack buffers into recovery
+PASS buffered skill executes only once
+PASS hit stop preserves a tapped skill input
+PASS light attacks do not slide heavy bosses out of reach
+PASS target leaving attack reach before active frame avoids hit
+PASS mid-action save is readable
+PASS reloading resolved action does not duplicate damage
+PASS precise guard prevents damage and grants resource
+PASS held guard is reduced damage, not endless parry
+PASS lamp placement keeps world position
+PASS light zone stays at placed lamp when player moves
+PASS recall returns light zone to player
+PASS hound targets placed lamp
+PASS enemy lamp attack drains oil
+PASS charged hammer has stronger impact than tap
+PASS hammer stagger cancels pending enemy hit area
+PASS full star energy produces three projectiles and spends energy
+PASS star skill penetrates two aligned enemies
+PASS staff can hit overlapping point-blank enemy
+PASS jump clears timed ground strike
+PASS dodge passes through telegraph without damage
+PASS boss 4 has visible windup
+PASS boss 4 has its own opening pattern
+PASS boss 5 has visible windup
+PASS boss 5 has its own opening pattern
+PASS boss 6 has visible windup
+PASS boss 6 has its own opening pattern
+PASS hazard applies exactly once at 30 FPS
+PASS hazard applies exactly once at 60 FPS
+PASS exhausted lamp stops lighting area
+PASS travel resets placed lamp and action state
+COMBAT_OK assertions=34
