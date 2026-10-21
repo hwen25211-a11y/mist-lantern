@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "profile": {
+    "version": 1,
+    "embers": 167,
+    "vitality": 1,
+    "power": 0,
+    "flask": 0,
+    "runs": 2,
+    "wins": 2,
+    "bestRoom": 12
+  },
+  "run": {
+    "version": 2,
+    "seed": 832235367,
+    "room": 11,
+    "weapon": 2,
+    "kills": 57,
+    "potions": 2,
+    "earned": 66,
+    "nextId": 57,
+    "combo": 3,
+    "rewardCount": 0,
+    "wave": 1,
+    "waves": 1,
+    "maxHp": 152,
+    "random": 1554208204,
+    "hp": 120.0,
+    "oil": 60.28788757324219,
+    "elapsed": 81.19673156738281,
+    "attackCd": 0.3264828324317932,
+    "dodgeCd": 0.7169737815856934,
+    "dodgeTime": 0.0,
+    "invulnerable": 0.0,
+    "skillCd": 0.0,
+    "jump": 0.0,
+    "jumpVelocity": 0.0,
+    "comboClock": 1.3964828252792358,
+    "swing": 0.30891120433807373,
+    "skillFlash": 0.0,
+    "pos": {
+      "x": -2.486288070678711,
+      "y": -0.8784282803535461
+    },
+    "direction": {
+      "x": 0.9701424837112427,
+      "y": -0.24253562092781067
+    },
+    "dodgeDir": {
+      "x": 0.9701424837112427,
+      "y": -0.24253569543361664
+    },
+    "lampPos": {
+      "x": -6.0,
+      "y": 0.0
+    },
+    "attackDirection": {
+      "x": 0.9701424837112427,
+      "y": -0.24253562092781067
+    },
+    "actionAge": 0.12108878791332245,
+    "actionDuration": 0.4300000071525574,
+    "windup": 0.11999999731779099,
+    "hitStop": 0.0,
+    "guardTime": 0.0,
+    "guardCooldown": 0.0,
+    "lampCooldown": 0.0,
+    "charge": 0.0,
+    "resource": 100.0,
+    "hurtFlash": 0.0,
+    "skillBuffer": 0.0,
+    "dodgeBuffer": 0.0,
+    "actionResolved": true,
+    "skillAction": false,
+    "guarding": false,
+    "lampPlaced": false,
+    "perfectGuards": 0,
+    "bright": true,
+    "elite": false,
+    "settled": true,
+    "phase": 5,
+    "relics": [
+      4,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      1,
+      2,
+      0
+    ],
+    "offers": [
+      2,
+      0,
+      4
+    ],
+    "enemies": [
+      {
+        "id": 57,
+        "kind": 6,
+        "pos": {
+          "x": -2.126659870147705,
+          "y": -0.9683353304862976
+        },
+        "hp": 0.0,
+        "maxHp": 1480.0,
+        "clock": 0.05118284374475479,
+        "stun": 0.0,
+        "flash": 0.183332622051239,
+        "shadow": true,
+        "facing": -1.0,
+        "action": 0.0,
+        "actionDuration": 1.100000023841858,
+        "recovery": 0.0,
+        "moveIndex": 2,
+        "target": {
+          "x": -6.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "dangers": [],
+    "bolts": []
+  }
+}

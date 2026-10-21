@@ -39,17 +39,17 @@ namespace Mist
             cam=new GameObject("Adventure Camera").AddComponent<Camera>();cam.tag="MainCamera";cam.orthographic=true;cam.orthographicSize=6.8f;
             cameraHome=new Vector3(0,11,-23);cam.transform.position=cameraHome;cam.transform.LookAt(new Vector3(0,1.1f,1.3f));
             cam.backgroundColor=Models.Hex("233D49");cam.clearFlags=CameraClearFlags.SolidColor;cam.nearClipPlane=.1f;cam.farClipPlane=120;cam.gameObject.AddComponent<AudioListener>();
-            RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Flat;RenderSettings.ambientLight=Models.Hex("4E6574");RenderSettings.ambientIntensity=.8f;RenderSettings.fog=false;
-            var key=new GameObject("Lantern moonlight").AddComponent<Light>();key.type=LightType.Directional;key.color=Models.Hex("FFE5B5");key.intensity=.8f;key.transform.rotation=Quaternion.Euler(45,-35,0);key.shadows=LightShadows.Soft;key.shadowStrength=.4f;
+            RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;RenderSettings.ambientSkyColor=Models.Hex("586D79");RenderSettings.ambientEquatorColor=Models.Hex("2D424A");RenderSettings.ambientGroundColor=Models.Hex("222E2E");RenderSettings.fog=true;RenderSettings.fogColor=Models.Hex("243D49");RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=33;RenderSettings.fogEndDistance=65;
+            var key=new GameObject("Lantern moonlight").AddComponent<Light>();key.type=LightType.Directional;key.color=Models.Hex("FFE5B5");key.intensity=.95f;key.transform.rotation=Quaternion.Euler(45,-35,0);key.shadows=LightShadows.Soft;key.shadowStrength=.65f;
             var rim=new GameObject("Cool skylight").AddComponent<Light>();rim.type=LightType.Directional;rim.color=Models.Hex("7EBFC9");rim.intensity=.18f;rim.transform.rotation=Quaternion.Euler(25,140,0);
             actors=new GameObject("Characters").transform;fx=new GameObject("Effects").transform;
-            placedLamp=Models.Lantern(actors,Vector3.zero,.95f);placedLamp.SetActive(false);
+            placedLamp=Sculpt.Lantern(actors,Vector3.zero,.95f);placedLamp.SetActive(false);
             ward=Effect("Lantern's field",disc,new Color(.94f,.72f,.35f,.14f));ward.transform.localScale=new Vector3(3.4f,1,3.4f);
             var edge=Effect("Light boundary",ring,new Color(1,.77f,.4f,.3f));edge.transform.SetParent(ward.transform,false);edge.transform.localPosition=Vector3.up*.006f;
-            // Three independently authored panoramas share an atlas, selected through UVs.
-            backdrop=new GameObject("Painted distant city");backdrop.transform.SetParent(cam.transform,false);backdrop.transform.localPosition=new Vector3(0,2.1f,80);
-            var mesh=new Mesh{name="Background plane"};mesh.vertices=new[]{new Vector3(-16,-5.33f,0),new Vector3(16,-5.33f,0),new Vector3(16,5.33f,0),new Vector3(-16,5.33f,0)};mesh.uv=new[]{new Vector2(0,0),new Vector2(1,0),new Vector2(1,1),new Vector2(0,1)};mesh.triangles=new[]{0,2,1,0,3,2};mesh.RecalculateNormals();
-            backdrop.AddComponent<MeshFilter>().sharedMesh=mesh;var mat=new Material(Shader.Find("Unlit/Texture"));mat.mainTexture=Resources.Load<Texture2D>("Art/Worlds-v2");backdrop.AddComponent<MeshRenderer>().sharedMaterial=mat;
+            // Only the remote skyline uses a matte painting; all playable and middle-distance structures are solid.
+            backdrop=new GameObject("Distant atmospheric skyline");backdrop.transform.SetParent(cam.transform,false);backdrop.transform.localPosition=new Vector3(0,2.1f,80);
+            var mesh=new Mesh{name="Distant matte"};mesh.vertices=new[]{new Vector3(-16,-5.33f,0),new Vector3(16,-5.33f,0),new Vector3(16,5.33f,0),new Vector3(-16,5.33f,0)};mesh.uv=new[]{new Vector2(0,0),new Vector2(1,0),new Vector2(1,1),new Vector2(0,1)};mesh.triangles=new[]{0,2,1,0,3,2};mesh.RecalculateNormals();
+            backdrop.AddComponent<MeshFilter>().sharedMesh=mesh;var mat=new Material(Shader.Find("Mist/Backdrop"));mat.mainTexture=Resources.Load<Texture2D>("Art/Worlds-v2");backdrop.AddComponent<MeshRenderer>().sharedMaterial=mat;
             SetStage(0);
         }
         void SetStage(int next)
@@ -82,7 +82,7 @@ namespace Mist
             Animate(hero,s.pos,s.jump,s.direction.x,walking,progress,s.weapon,s.dodgeTime>0,s.hurtFlash,s.guarding,s.charge,step);
             placedLamp.SetActive(s.lampPlaced);placedLamp.transform.position=P(s.lampPos,.08f);
             ward.SetActive(s.bright);ward.transform.position=P(s.lampPlaced?s.lampPos:s.pos,.045f);
-            var lantern=hero.transform.Find("Rig/Body/ArmL/Lantern");if(lantern)lantern.gameObject.SetActive(!s.lampPlaced);
+            var lantern=hero.transform.Find("Rig/Body/ArmL/Forearm/Lantern");if(lantern)lantern.gameObject.SetActive(!s.lampPlaced);
             var current=new HashSet<int>();foreach(var e in s.enemies)current.Add(e.id);var stale=new List<int>();foreach(var pair in enemyModels)if(!current.Contains(pair.Key)){Release(pair.Value);stale.Add(pair.Key);}foreach(int id in stale)enemyModels.Remove(id);
             foreach(var e in s.enemies)
             {
@@ -118,11 +118,15 @@ namespace Mist
             g.transform.localScale=new Vector3(facing>=0?1:-1,1,1);float side=1;rig.localRotation=Quaternion.Euler(dodge?-20:0,-side*20,dodge?-side*35:hurt>0?-side*hurt*32:0);
             float stride=Mathf.Sin(animClock*11)*walk;rig.localPosition=new Vector3(0,Mathf.Abs(stride)*.05f,0);
             var body=rig.Find("Body");if(body){body.localRotation=Quaternion.Euler(0,action>=0?side*Mathf.Sin(action*6.28f)*25:0,action>=0?side*Mathf.Sin(action*6.28f)*7:0);}
-            foreach(string name in new[]{"LegL","LegR","Leg0","Leg1","Leg2","Leg3"}){var leg=rig.Find(name);if(leg)leg.localRotation=Quaternion.Euler(stride*(name.EndsWith("L")||name.EndsWith("0")||name.EndsWith("2")?26:-26),0,0);}
+            foreach(string name in new[]{"LegL","LegR","Leg0","Leg1","Leg2","Leg3"}){var leg=rig.Find(name);if(leg){float swing=stride*(name.EndsWith("L")||name.EndsWith("0")||name.EndsWith("2")?1:-1);leg.localRotation=Quaternion.Euler(swing*26,0,0);var shin=leg.Find("Shin");if(shin)shin.localRotation=Quaternion.Euler(-Mathf.Max(0,swing)*38,0,0);}}
             var right=rig.Find("Body/ArmR");var left=rig.Find("Body/ArmL");
-            if(right){float angle=action<0?charge>0?-120*Mathf.Clamp01(charge/.4f):stride*12:action<.2f?Mathf.Lerp(0,-125,action/.2f):action<.45f?Mathf.Lerp(-125,65,(action-.2f)/.25f):Mathf.Lerp(65,0,(action-.45f)/.55f);right.localRotation=Quaternion.Euler(guard?-70:angle,action>=0?side*30:0,action>=0?-side*25:guard?side*45:0);}
-            if(left)left.localRotation=Quaternion.Euler(guard?-65:-stride*10,0,guard?-side*28:action>=0?side*15:0);
+            if(right){float angle=action<0?charge>0?-120*Mathf.Clamp01(charge/.4f):stride*12-8:action<.2f?Mathf.Lerp(0,-125,action/.2f):action<.45f?Mathf.Lerp(-125,65,(action-.2f)/.25f):Mathf.Lerp(65,0,(action-.45f)/.55f);right.localRotation=Quaternion.Euler(guard?-70:angle,action>=0?side*30:0,action>=0?-side*25:guard?side*45:0);}
+            if(left)left.localRotation=Quaternion.Euler(guard?-65:-stride*10+3,0,guard?-side*28:action>=0?side*15:4);
+            var rightElbow=right?right.Find("Forearm"):null;var leftElbow=left?left.Find("Forearm"):null;
+            if(rightElbow)rightElbow.localRotation=Quaternion.Euler(guard?-28:action>=0?-12-Mathf.Sin(action*Mathf.PI)*26:-12,0,0);
+            if(leftElbow)leftElbow.localRotation=Quaternion.Euler(guard?-28:-5-Mathf.Abs(stride)*8,0,0);
             var scarf=rig.Find("Body/ScarfTail");if(scarf)scarf.localRotation=Quaternion.Euler(Mathf.Sin(animClock*5)*7,Mathf.Sin(animClock*7)*walk*14,Mathf.Sin(animClock*5)*5);
+            var cape=rig.Find("Body/ScarfTail");var capeTip=cape?cape.Find("CapeTip"):null;if(capeTip){cape.localRotation=Quaternion.Euler(Mathf.Sin(animClock*3)*2+walk*3,Mathf.Sin(animClock*3.5f)*walk*5,Mathf.Sin(animClock*2.8f)*2);capeTip.localRotation=Quaternion.Euler(Mathf.Sin(animClock*3-1)*3+walk*4,0,Mathf.Sin(animClock*2.8f-1)*3);}
             for(int i=-1;i<=1;i+=2){var wing=rig.Find(i<0?"Body/WingL":"Body/WingR");if(wing)wing.localRotation=Quaternion.Euler(0,i*Mathf.Sin(animClock*7)*22,0);}
         }
         void Spark(Vector3 pos,Color c,Vector3 velocity,float life,float size)

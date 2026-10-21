@@ -1,0 +1,2 @@
+PASS three weapon variants: mesh channels, normalized skin weights, valid bones and shaders, held props, finite deformations and edge stretch below 6 at six attack poses with bent elbow/knee and moving cape.
+Total variant vertices=420996 triangles=605232

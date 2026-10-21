@@ -13,3 +13,14 @@
 *.png binary
 *.jpg binary
 *.ttf binary
+*.blend binary
+*.glb binary
+# Unity serializes empty YAML values with a trailing space.
+*.meta whitespace=-blank-at-eol
+*.unity whitespace=-blank-at-eol
+*.prefab whitespace=-blank-at-eol
+*.asset whitespace=-blank-at-eol
+*.mat whitespace=-blank-at-eol
+*.mtl whitespace=-blank-at-eof
+# Preserve upstream license and notice bytes exactly.
+ArtSource/Characters/Generated/HunyuanMLX/*.txt whitespace=-blank-at-eol

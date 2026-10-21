@@ -1,0 +1,13 @@
+{
+  "service": "https://tencentarc-pixal3d.hf.space",
+  "space": "TencentARC/Pixal3D",
+  "space_revision": "40a1519aadf70a82110a500997c19b626668a144",
+  "seed": 43192,
+  "resolution": 1024,
+  "input": "ArtSource/Characters/Concept/keeper-model-front-v1.png",
+  "input_sha256": "75c3d326080a86a752282ef4254f846bdd7883f3ebc207a6c4aa206a7cd50b37",
+  "session_id": "62839e56-dbc8-4f58-b550-76196a0a844c",
+  "status": "failed",
+  "preprocessed": "/Users/Admin/Documents/Code/projects/19/ArtSource/Characters/Generated/Pixal3D/downloads/0afe54d6a3dfdc253a0450af4251c4bec1712ddeae8fa77825e4637880e10e53/preprocessed_1792577692063.png",
+  "error": "You have exceeded your ZeroGPU quota (120s requested vs. 177s left). Try again in 23:59:50. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens"
+}

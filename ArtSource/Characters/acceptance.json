@@ -1,0 +1,12 @@
+{
+  "version": "1.1.0",
+  "approved_design": "Concept/keeper-cartoon-v1.png",
+  "runtime_mesh_record": "Keeper-rig.json",
+  "actual_unity_images": "../../docs/screenshots/character-rebuild",
+  "verification": "../../docs/qa/keeper-release/release-verification.json",
+  "qa_report": "../../docs/QA.md",
+  "native_win_seed": 1100700965,
+  "web_win_seed": 1324792217,
+  "cloud_mesh_used": false,
+  "status": "final local Keeper revision; automated and native/WebGL real-input regressions passed"
+}

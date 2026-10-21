@@ -26,6 +26,7 @@ namespace Mist
         Transform enemyHud;
         Phase drawnPhase;
         float toastUntil,saveClock,qaClock;
+        float activeFrameSeconds,worstFrame;int activeFrames;
         int selectedWeapon;
         bool ready;
 #if UNITY_EDITOR
@@ -85,7 +86,7 @@ namespace Mist
             UI.Button(overlay,"Guide","操作与玩法",88,704,245,52,()=>Guide(true));
             UI.Button(overlay,"Audio",sound.Muted?"声音：关":"声音：开",345,704,123,52,()=>{sound.Toggle();Title();});
             UI.Text(overlay,"MenuKeys","Enter 开始 · W 工坊 · H 手册",88,775,470,32,17,UI.Gold);
-            UI.Text(overlay,"Version","v1.0.0  ·  单机冒险  ·  默认静音",88,819,470,28,16,UI.Muted);
+            UI.Text(overlay,"Version","v1.1.0  ·  单机冒险  ·  默认静音",88,819,470,28,16,UI.Muted);
             UI.Text(overlay,"Credits","原创角色与场景 · Unity / C#",1100,849,430,28,16,UI.Muted,false,TextAlignmentOptions.Right);
         }
         void ConfirmNew()
@@ -175,6 +176,7 @@ namespace Mist
             if(sim==null||Paused||InTitle)return;var s=sim.s;
             if(drawnPhase==s.phase)return;drawnPhase=s.phase;Saves.Write(data);
             Debug.Log("MIST_PHASE room="+s.room+" phase="+s.phase+" hp="+s.hp.ToString("0.0")+" kills="+s.kills);
+            if(s.phase==Phase.Won||s.phase==Phase.Lost)Debug.Log("MIST_PERFORMANCE active_fps="+(activeFrames/Mathf.Max(.001f,activeFrameSeconds)).ToString("0.0")+" worst_frame_ms="+(worstFrame*1000).ToString("0.0")+" allocated_mb="+(UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong()/1048576));
             if(s.phase==Phase.Playing){ClearOverlay("playing");Toast(Catalog.Areas[s.room/4]+" · "+(s.room%4==3?"首领战":s.elite?"险路":"探索"),3);return;}
             if(s.phase==Phase.Reward)
             {
@@ -325,17 +327,18 @@ namespace Mist
             }
             else world.Render(null,dt,false);
             sound.Apply();
+            if(sim!=null&&!InTitle&&!Paused&&sim.s.phase==Phase.Playing&&Application.isFocused&&Time.realtimeSinceStartup>5){activeFrames++;activeFrameSeconds+=Time.unscaledDeltaTime;worstFrame=Mathf.Max(worstFrame,Time.unscaledDeltaTime);}
             if(Saves.IsTest)
             {
                 qaClock+=Time.unscaledDeltaTime;
                 if(qaClock>1)
                 {
                     qaClock=0;
-                    File.WriteAllText(Path.Combine(Application.persistentDataPath,"qa-state.json"),JsonUtility.ToJson(new QaState{screen=Screen,paused=Paused,muted=AudioListener.volume==0,run=sim==null?null:sim.s}));
+                    File.WriteAllText(Path.Combine(Application.persistentDataPath,"qa-state.json"),JsonUtility.ToJson(new QaState{screen=Screen,paused=Paused,muted=AudioListener.volume==0,run=sim==null?null:sim.s,activeFps=activeFrames/Mathf.Max(.001f,activeFrameSeconds),worstFrameMs=worstFrame*1000,allocatedMb=UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong()/1048576}));
                 }
             }
         }
-        [Serializable] public class QaState {public string screen;public bool paused,muted;public Run run;}
+        [Serializable] public class QaState {public string screen;public bool paused,muted;public Run run;public float activeFps,worstFrameMs;public long allocatedMb;}
         void OnApplicationFocus(bool focus)
         {if(ready&&!focus&&!InTitle&&!Paused&&sim!=null&&sim.s.phase==Phase.Playing)Pause();}
         void OnApplicationPause(bool pause){if(ready&&pause&&!InTitle)Pause();}

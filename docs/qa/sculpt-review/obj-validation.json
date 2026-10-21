@@ -1,0 +1,55 @@
+{
+  "models": [
+    {
+      "model": "Enemy0",
+      "vertices": 29797,
+      "triangles": 51208
+    },
+    {
+      "model": "Enemy1",
+      "vertices": 34656,
+      "triangles": 58908
+    },
+    {
+      "model": "Enemy2",
+      "vertices": 35082,
+      "triangles": 59664
+    },
+    {
+      "model": "Enemy3",
+      "vertices": 7754,
+      "triangles": 13516
+    },
+    {
+      "model": "Enemy4",
+      "vertices": 44162,
+      "triangles": 74404
+    },
+    {
+      "model": "Enemy5",
+      "vertices": 23693,
+      "triangles": 41636
+    },
+    {
+      "model": "Enemy6",
+      "vertices": 21261,
+      "triangles": 35192
+    },
+    {
+      "model": "Hunter0",
+      "vertices": 32579,
+      "triangles": 55773
+    },
+    {
+      "model": "Hunter1",
+      "vertices": 37256,
+      "triangles": 64485
+    },
+    {
+      "model": "Hunter2",
+      "vertices": 33684,
+      "triangles": 57765
+    }
+  ],
+  "passed": true
+}

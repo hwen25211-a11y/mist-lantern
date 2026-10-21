@@ -1,0 +1,17 @@
+雾灯遗城 v1.1.0 角色制作来源
+
+主角 Keeper 依据本项目已确认设计稿，使用 AI 辅助的本地三维重建，随后完成四视图绘制、图集烘焙、网格修整、肩甲拆分、骨骼绑定与 Unity 整合。
+这不是学生从零手工雕刻的人体模型。
+
+本地生成端口：Hunyuan3D-Swift / MLX
+https://github.com/ZimengXiong/Hunyuan3D-Swift
+提交：292331f4d26ddb80b9dcea6bcb5629ff82f12b82
+模型：zimengxiong/hunyuan3d-mlx-shape-large
+https://huggingface.co/zimengxiong/hunyuan3d-mlx-shape-large
+
+上游模型和端口的原始许可、声明随包保留在 HunyuanMLX 子目录；模型权重不随游戏分发。
+腾讯没有参与、赞助或认可本课程项目。本项目不是腾讯产品。
+Pixal3D 云端只完成预览，未取得可导出的模型，游戏未使用 Pixal3D 网格。
+旧 MakeHuman 与毛发实验未用于当前主角。
+
+独立武器、提灯、背部装备、敌人与环境的生成源码，以及完整 .blend、GLB、图集、来源摘要与制作说明均保留在 Unity 源工程中。

@@ -1,0 +1,21 @@
+{
+  "mouse_upgrade": true,
+  "embers_before": 102,
+  "vitality_before": 1,
+  "power_before": 2,
+  "vitality_after": 2,
+  "power_after": 3,
+  "costs": [
+    27,
+    39
+  ],
+  "embers_after": 36,
+  "fullscreen": [
+    1920,
+    1080
+  ],
+  "default_viewport": [
+    1280,
+    720
+  ]
+}

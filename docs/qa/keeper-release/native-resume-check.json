@@ -1,0 +1,6 @@
+{
+  "run_identical_after_process_restart": true,
+  "seed": 1100700965,
+  "room": 3,
+  "muted": true
+}

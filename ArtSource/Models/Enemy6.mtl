@@ -1,0 +1,71 @@
+# Base material palette. Crafted surface shader is defined in the Unity project.
+newmtl m0
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 57
+d 1
+
+newmtl m1
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 78
+d 1
+
+newmtl m2
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 72
+d 1
+
+newmtl m3
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 78
+d 1
+
+newmtl m4
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 57
+d 1
+
+newmtl m5
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 78
+d 1
+
+newmtl m6
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 57
+d 1
+
+newmtl m7
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 9
+d 1
+
+newmtl m8
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 78
+d 1
+
+newmtl m9
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 57
+d 1
+

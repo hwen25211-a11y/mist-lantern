@@ -1,0 +1,14 @@
+PASS Hunter0 materials, vertex data, winding, articulation
+PASS Hunter1 materials, vertex data, winding, articulation
+PASS Hunter2 materials, vertex data, winding, articulation
+PASS Enemy0 materials, vertex data, winding, articulation
+PASS Enemy1 materials, vertex data, winding, articulation
+PASS Enemy2 materials, vertex data, winding, articulation
+PASS Enemy3 materials, vertex data, winding, articulation
+PASS Enemy4 materials, vertex data, winding, articulation
+PASS Enemy5 materials, vertex data, winding, articulation
+PASS Enemy6 materials, vertex data, winding, articulation
+PASS Area0 stage materials
+PASS Area1 stage materials
+PASS Area2 stage materials
+MODEL_CHECKS_OK checked_faces=995538 exceptions=18

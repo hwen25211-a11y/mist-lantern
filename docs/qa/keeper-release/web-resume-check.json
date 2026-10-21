@@ -1,0 +1,12 @@
+{
+  "verification": "Visible UI and console checkpoint after page reload",
+  "seed": 1324792217,
+  "room": 3,
+  "phase": "Reward",
+  "hp": 138,
+  "max_hp": 144,
+  "potions": 3,
+  "elapsed_display": "00:34",
+  "restored_notice_visible": true,
+  "sound_label": "声音：关"
+}

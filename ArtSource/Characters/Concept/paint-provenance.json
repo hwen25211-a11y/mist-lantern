@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-21",
+  "tool": "built-in image_gen image editor",
+  "approved_target": "keeper-cartoon-v1.png",
+  "common_brief": "Edit the actual gray mesh render with the approved costume and broad faceted painted style. Preserve camera, silhouette, feature positions and alpha. All projecting hair is brown, not skin. No held equipment. These are paint guides, not Unity renders.",
+  "views": [
+    {
+      "file": "keeper-paint-front-v1.png",
+      "geometry_reference": "front-clay.png",
+      "brief": "Geometry-aligned orthographic front; compact adult cartoon face, normal open almond eyes, dark brown swept hair; copper shoulder on anatomical right.",
+      "sha256": "82b2612ed6b8118d56c1fce61be6cd6fdc70198befb62b7df2a8a7d771d3b458"
+    },
+    {
+      "file": "keeper-paint-back-v1.png",
+      "geometry_reference": "back-clay.png",
+      "brief": "Geometry-aligned orthographic rear; dark teal hood and ragged mantle. No flat-painted pack: the roll and pouch are separate runtime geometry.",
+      "sha256": "907602b7d6e9d16d6a6c4e1792df0c1ffc387b3ae01c2052b6a1ad1bfb3d4e5e"
+    },
+    {
+      "file": "keeper-paint-left-v1.png",
+      "geometry_reference": "left-clay.png",
+      "brief": "Geometry-aligned left profile, facing image left. No copper pauldron on the visible left shoulder.",
+      "sha256": "2a334f55a705856528e8c722e02764a31b64b3f87451fabb94762c1b82c77cd0"
+    },
+    {
+      "file": "keeper-paint-right-v1.png",
+      "geometry_reference": "right-clay.png",
+      "brief": "Geometry-aligned right profile, facing image right. Copper pauldron on the visible right shoulder.",
+      "sha256": "4916a06a36b62158d847c60573c917e24fc7d213947207f68085d2ad130d1789"
+    }
+  ]
+}

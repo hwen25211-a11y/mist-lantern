@@ -1,0 +1,35 @@
+{
+  "status": "candidate generated; visual, material, rig and runtime review required",
+  "shape_only": true,
+  "port": "https://github.com/ZimengXiong/Hunyuan3D-Swift",
+  "port_revision": "292331f4d26ddb80b9dcea6bcb5629ff82f12b82",
+  "model": "zimengxiong/hunyuan3d-mlx-shape-large",
+  "model_revision": "5ad04593521ff80875ac007ef8185209368f18bc",
+  "input": "ArtSource/Characters/Concept/keeper-model-front-v1.png",
+  "input_sha256": "75c3d326080a86a752282ef4254f846bdd7883f3ebc207a6c4aa206a7cd50b37",
+  "seed": 43192,
+  "steps": 8,
+  "quantize": 8,
+  "resolution": 384,
+  "query_chunk": 4096,
+  "mlx_version": "0.31.2",
+  "elapsed_seconds": 116.13,
+  "vertices": 484441,
+  "triangles": 968862,
+  "bounds": [
+    [
+      -0.7132937394204301,
+      -0.9964775230644177,
+      -0.5299875212328787
+    ],
+    [
+      0.7062365497438261,
+      0.9870960425768447,
+      0.5527046512087426
+    ]
+  ],
+  "watertight": true,
+  "output": "ArtSource/Characters/Generated/HunyuanMLX/keeper-shape-candidate.glb",
+  "output_sha256": "8c45f748e4d32abdca34bf7a899aa2b937fbb616a54f322cfcc60076edd11b15",
+  "peak_mlx_gb": 6.811
+}

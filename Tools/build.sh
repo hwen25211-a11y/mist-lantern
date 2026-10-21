@@ -14,3 +14,6 @@ case "${1:-mac}" in
  *) echo 'Usage: Tools/build.sh [prepare|mac|web|checks|smoke]'; exit 2 ;;
 esac
 "$UNITY_BIN" -batchmode "${flags[@]}" -projectPath "$PWD" -executeMethod "$method" -silent-test -logFile "$PWD/docs/qa/${1:-mac}.log"
+case "${1:-mac}" in
+ mac|web) python3 Tools/build_manifest.py "${1:-mac}" ;;
+esac

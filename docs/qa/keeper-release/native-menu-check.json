@@ -1,0 +1,15 @@
+{
+  "previous_max_hp": 144,
+  "new_max_hp": 156,
+  "embers_before": 231,
+  "embers_after": 192,
+  "cost": 39,
+  "muted": true,
+  "lamp_placed": true,
+  "bright": false,
+  "position": {
+    "x": 0.926450252532959,
+    "y": -1.7450828552246094
+  },
+  "weapon": 0
+}

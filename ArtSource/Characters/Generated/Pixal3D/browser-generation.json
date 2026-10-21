@@ -1,0 +1,17 @@
+{
+  "service": "https://huggingface.co/spaces/TencentARC/Pixal3D",
+  "access": "user-authorized logged-in Edge UI",
+  "status": "preview succeeded, GLB extraction blocked by maximum permitted GPU request duration",
+  "resolution": 1536,
+  "seed": 43192,
+  "manual_fov_radians": 0.2,
+  "reference_visually_verified": "ArtSource/Characters/Concept/keeper-model-front-v1.png",
+  "expected_reference_sha256": "75c3d326080a86a752282ef4254f846bdd7883f3ebc207a6c4aa206a7cd50b37",
+  "started_utc": "2026-10-21T12:24:10.899412+00:00",
+  "preview_camera": {
+    "fov": 0.2,
+    "distance": 4.983
+  },
+  "preview_observation": "render_shaded_forest_0_1792585481860.jpg",
+  "extraction_error": "The requested GPU duration (240s) is larger than the maximum allowed"
+}

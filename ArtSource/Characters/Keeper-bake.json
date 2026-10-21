@@ -1,0 +1,8 @@
+{
+  "source": "Generated/HunyuanMLX/keeper-shape-candidate.glb",
+  "vertices": 90010,
+  "triangles": 180000,
+  "texture_size": 4096,
+  "uv_layers": 1,
+  "status": "unrigged candidate; visual review and deformation tests required"
+}

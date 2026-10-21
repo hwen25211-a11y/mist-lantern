@@ -156,7 +156,7 @@ namespace Mist
             var ring=Ring("Handle",r.transform,new Vector3(0,.78f,0),.1f,.022f,Gold);ring.transform.localEulerAngles=new Vector3(90,0,0);
             return r;
         }
-        public static GameObject Character(int kind=-1,int weapon=0){var model=Art.Character(kind,weapon);Art.Optimize(model);return model;}
+        public static GameObject Character(int kind=-1,int weapon=0){if(kind<0){var warden=WardenModel.Create(weapon);if(warden)return warden;}var model=Sculpt.Character(kind,weapon);Sculpt.Optimize(model);return model;}
         static GameObject LegacyCharacter(int kind=-1,int weapon=0)
         {
             var r=Root(kind<0?"Hunter":Catalog.EnemyNames[Mathf.Min(kind,6)]);
@@ -258,7 +258,7 @@ namespace Mist
                 block.transform.localEulerAngles=new Vector3(0,0,a*Mathf.Rad2Deg+90);
             }
         }
-        public static GameObject Stage(int area){return Art.Stage(area);}
+        public static GameObject Stage(int area){var stage=Sculpt.Stage(area);Sculpt.Optimize(stage);return stage;}
         static GameObject LegacyStage(int area)
         {
             var root=Root("Environment");var r=root.transform;
