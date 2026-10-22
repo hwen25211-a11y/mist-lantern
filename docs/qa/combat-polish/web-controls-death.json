@@ -1,0 +1,374 @@
+[
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Playing hp=144.0 kills=0\n",
+    "timestamp": "2026-10-22T04:40:12.212Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_RUN_BEGIN seed=596543591 weapon=0\n",
+    "timestamp": "2026-10-22T04:40:12.213Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Reward hp=44.0 kills=6\n",
+    "timestamp": "2026-10-22T04:40:47.210Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Reward hp=44.0 kills=6\n",
+    "timestamp": "2026-10-22T04:42:27.247Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Reward hp=44.0 kills=6\n",
+    "timestamp": "2026-10-22T04:43:10.513Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Route hp=44.0 kills=6\n",
+    "timestamp": "2026-10-22T04:43:10.712Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=1 phase=Rest hp=44.0 kills=6\n",
+    "timestamp": "2026-10-22T04:43:10.895Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=1 phase=Route hp=99.0 kills=6\n",
+    "timestamp": "2026-10-22T04:43:49.513Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Playing hp=99.0 kills=6\n",
+    "timestamp": "2026-10-22T04:43:49.514Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Playing hp=74.0 kills=6\n",
+    "timestamp": "2026-10-22T04:44:42.929Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Playing hp=90.0 kills=11\n",
+    "timestamp": "2026-10-22T04:45:08.247Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Playing hp=60.0 kills=12\n",
+    "timestamp": "2026-10-22T04:45:54.397Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Reward hp=106.0 kills=14\n",
+    "timestamp": "2026-10-22T04:45:56.664Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Reward hp=106.0 kills=14\n",
+    "timestamp": "2026-10-22T04:46:40.081Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=2 phase=Route hp=106.0 kills=14\n",
+    "timestamp": "2026-10-22T04:46:40.280Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=3 phase=Playing hp=106.0 kills=14\n",
+    "timestamp": "2026-10-22T04:46:40.462Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=3 phase=Playing hp=60.0 kills=14\n",
+    "timestamp": "2026-10-22T04:47:06.080Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=3 phase=Reward hp=136.0 kills=15\n",
+    "timestamp": "2026-10-22T04:47:07.314Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=3 phase=Reward hp=136.0 kills=15\n",
+    "timestamp": "2026-10-22T04:47:43.648Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=3 phase=Route hp=156.0 kills=15\n",
+    "timestamp": "2026-10-22T04:48:56.748Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=4 phase=Playing hp=156.0 kills=15\n",
+    "timestamp": "2026-10-22T04:48:56.764Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=4 phase=Playing hp=143.0 kills=21\n",
+    "timestamp": "2026-10-22T04:49:47.731Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=4 phase=Reward hp=130.0 kills=23\n",
+    "timestamp": "2026-10-22T04:49:48.117Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=4 phase=Route hp=130.0 kills=23\n",
+    "timestamp": "2026-10-22T04:50:32.815Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=5 phase=Rest hp=130.0 kills=23\n",
+    "timestamp": "2026-10-22T04:50:33.015Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=5 phase=Route hp=164.0 kills=23\n",
+    "timestamp": "2026-10-22T04:50:33.214Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Playing hp=164.0 kills=23\n",
+    "timestamp": "2026-10-22T04:51:28.498Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Playing hp=125.0 kills=26\n",
+    "timestamp": "2026-10-22T04:52:03.864Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Playing hp=99.0 kills=28\n",
+    "timestamp": "2026-10-22T04:52:46.516Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Playing hp=106.0 kills=37\n",
+    "timestamp": "2026-10-22T04:54:17.867Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Reward hp=93.0 kills=41\n",
+    "timestamp": "2026-10-22T04:54:18.432Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=6 phase=Route hp=93.0 kills=41\n",
+    "timestamp": "2026-10-22T04:55:18.217Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Playing hp=93.0 kills=41\n",
+    "timestamp": "2026-10-22T04:55:18.414Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Playing hp=67.0 kills=41\n",
+    "timestamp": "2026-10-22T04:56:14.000Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Reward hp=97.0 kills=42\n",
+    "timestamp": "2026-10-22T04:56:15.650Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=7 phase=Route hp=97.0 kills=42\n",
+    "timestamp": "2026-10-22T04:56:56.833Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Playing hp=97.0 kills=42\n",
+    "timestamp": "2026-10-22T04:56:57.034Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Playing hp=75.0 kills=46\n",
+    "timestamp": "2026-10-22T04:58:11.687Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Playing hp=69.0 kills=50\n",
+    "timestamp": "2026-10-22T04:59:32.688Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Reward hp=69.0 kills=52\n",
+    "timestamp": "2026-10-22T04:59:33.254Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=8 phase=Route hp=69.0 kills=52\n",
+    "timestamp": "2026-10-22T05:00:02.252Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=9 phase=Rest hp=69.0 kills=52\n",
+    "timestamp": "2026-10-22T05:00:02.453Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=9 phase=Route hp=124.0 kills=52\n",
+    "timestamp": "2026-10-22T05:00:02.653Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Playing hp=124.0 kills=52\n",
+    "timestamp": "2026-10-22T05:00:02.851Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Playing hp=60.0 kills=57\n",
+    "timestamp": "2026-10-22T05:00:36.305Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Playing hp=54.0 kills=62\n",
+    "timestamp": "2026-10-22T05:01:36.623Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Reward hp=54.0 kills=64\n",
+    "timestamp": "2026-10-22T05:01:38.305Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Reward hp=54.0 kills=64\n",
+    "timestamp": "2026-10-22T05:02:30.604Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=10 phase=Route hp=54.0 kills=64\n",
+    "timestamp": "2026-10-22T05:02:30.804Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Playing hp=54.0 kills=64\n",
+    "timestamp": "2026-10-22T05:02:30.986Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Playing hp=98.0 kills=64\n",
+    "timestamp": "2026-10-22T05:02:59.488Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Playing hp=46.0 kills=64\n",
+    "timestamp": "2026-10-22T05:03:33.804Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=11 phase=Won hp=46.0 kills=65\n",
+    "timestamp": "2026-10-22T05:03:35.858Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PERFORMANCE active_fps=59.9 worst_frame_ms=102.0 allocated_mb=117\n",
+    "timestamp": "2026-10-22T05:03:35.859Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Playing hp=156.0 kills=0\n",
+    "timestamp": "2026-10-22T05:10:20.975Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_RUN_BEGIN seed=1322600632 weapon=1\n",
+    "timestamp": "2026-10-22T05:10:20.975Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Playing hp=156.0 kills=0\n",
+    "timestamp": "2026-10-22T05:10:54.340Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Playing hp=156.0 kills=5\n",
+    "timestamp": "2026-10-22T05:12:23.073Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Lost hp=0.0 kills=5\n",
+    "timestamp": "2026-10-22T05:12:59.676Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PERFORMANCE active_fps=59.9 worst_frame_ms=102.0 allocated_mb=119\n",
+    "timestamp": "2026-10-22T05:12:59.676Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_PHASE room=0 phase=Playing hp=156.0 kills=0\n",
+    "timestamp": "2026-10-22T05:14:06.540Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  },
+  {
+    "level": "log",
+    "message": "MIST_RUN_BEGIN seed=335852852 weapon=2\n",
+    "timestamp": "2026-10-22T05:14:06.540Z",
+    "url": "http://127.0.0.1:8921/Build/WebGL.framework.js"
+  }
+]

@@ -1,64 +1,66 @@
-# v1.1.0 验证记录
+# v1.2.0 战斗打磨验证记录
 
-验证日期：2026-10-21。Unity 2022.3.62f3c1，Apple M1 Pro / 16 GB，macOS 发布版与内置浏览器 WebGL。全程静音；原生与编辑器使用 `-silent-test`，实际状态记录确认 `muted=true`，浏览器声音保持关闭。
+验证日期：2026-10-22。Unity 2022.3.62f3c1，Apple M1 Pro / 16 GB，macOS 发布版与内置浏览器 WebGL。全程静音：原生及编辑器使用 `-silent-test`，运行记录确认 `muted=true`；浏览器保持声音关闭。
 
-本轮证据对应本地重建的 Keeper 主角、独立铜肩甲、提灯与背部装备，以及当前环境和战斗呈现。最终运行资源的 SHA256 在两种构建中完全一致。旧版记录保存在 [QA-v1.0.md](QA-v1.0.md)，不代替本轮验收。
+本轮保留已确认的 Keeper 造型，更新武器动作、真实武器节点与刀光、命中反馈、平滑击退、死亡渐隐、危险区倒计时、区域地面和 HUD。改动与实际渲染图见 [COMBAT-POLISH.md](COMBAT-POLISH.md)。旧记录保留在 [QA-v1.1.md](QA-v1.1.md)。
 
-## 模型与自动化
+## 自动化与视觉检查
 
 | 检查 | 结果 | 证据 |
 | --- | --- | --- |
-| 规则、存档和完整路线 | 44 条断言通过，含三武器 × 三种子 | [rules.txt](qa/rules.txt) |
-| 动作专项 | 34 条断言通过 | [combat-v2.txt](qa/combat-v2.txt) |
-| Unity Play Mode | 229 条断言，三种武器各自走完 12 个节点 | [play-results.txt](qa/play-results.txt) |
-| 界面 | 54 次审查，文字溢出 0、运行错误 0 | 同上 |
-| 蒙皮与关节 | 三种武器、六组攻击姿势、弯肘弯膝及披风摆动，有限顶点与权重归一化通过，边长拉伸未超门槛 | [mesh-checks.txt](qa/character-rebuild/mesh-checks.txt) |
-| 全部模型和场景 | 材质、网格通道、面朝向、骨骼与引用通过 | [model-checks.txt](qa/sculpt-review/model-checks.txt) |
-| DCC 与导出 | 原始形体、UV 图集、17 骨骼源文件及 10 个模型 OBJ/MTL | [角色来源](../ArtSource/Characters/README.md)、[model-export.txt](qa/sculpt-review/model-export.txt) |
+| 规则和存档 | 44 条断言，含三武器 × 三种子完整路线 | [rules.txt](qa/rules.txt) |
+| 战斗逻辑回归 | 34 条断言 | [combat-v2.txt](qa/combat-v2.txt) |
+| 本轮动作与反馈专项 | 88 条断言 | [checks.txt](qa/combat-polish/checks.txt) |
+| 实际 Play Mode | 229 条断言，三武器各自完成 12 节点；54 次界面审查，错误 0、文字溢出 0 | [play-results.txt](qa/play-results.txt) |
+| 实体模型与蒙皮 | 网格、材质、关节、有限顶点、权重与变形通过 | [网格检查](qa/character-rebuild/mesh-checks.txt)、[模型检查](qa/sculpt-review/model-checks.txt) |
 
-Play Mode 通过实际 EventSystem 指针事件检查按钮，再使用正常移动、攻击、技能、药水等输入驱动模拟；固定测试步长为 0.05 秒。它属于自动化，不冒充下面的真实键鼠游玩。自动化还覆盖自然死亡、再次出发、暂停冻结、保存继续、永久升级和强制静音。
+共 395 条断言。专项包含空挥不产生接触停顿、信号携带正确目标、击退不瞬移且衰减、击退存档恢复、收招末段攻击缓冲、音效采样有限及峰值、五组武器/连击的实际骨骼姿势、独立武器渲染节点、左右待机轮廓、满蓄力到挥击的姿势连续性、死亡对象在换波后保留且会清理、奖励期间特效正常结束、特效池上限及重置。
 
-## macOS 真实游玩
+动作图使用 Unity 实际网格和当前骨骼姿势烘焙；补齐了镜像朝向烘焙的处理，避免离线取图重复镜像。所有关键姿势均查看实际图像，未只依赖断言。声音按要求没有听音测试，只验证波形与强制静音。
 
-使用最终发布应用，通过键盘实际完成 12 个节点和 3 位首领，种子 **1100700965**，引星灯杖，击败 57 个敌人；胜利生命 **135 / 164**，战斗计时 **01:37**，营地余烬 **231**。这次测试沿用独立 QA 档中的生命 2 级，初始最大生命 144；未修改运行中的生命、敌人或关卡状态。
+## 最终 macOS 发布版实玩
 
-在第一位首领的奖励节点正常退出进程，再启动并继续；恢复前后整份 Run JSON 完全相同。通关后在工坊升级生命 2 → 3，实际扣除 39 余烬（231 → 192）；新弯刀局最大生命从 144 → 156。实际补测了放灯、移动离开光区、跳跃、连击、格挡、闪避和明暗切换。
+通过真实键盘输入完成种子 **1097819237**，引星灯杖，12 节点、3 首领、57 次击败；最终生命 **172 / 216**、时间 **01:22**、10 个遗物、营地余烬 **329**。沿用独立 QA 档生命 3 级、攻击 0 级，初始生命 156；没有直接改写运行中的生命、关卡或敌人。
 
-证据：[真实胜利截图](screenshots/character-rebuild/native-victory.png)、[胜利状态](qa/keeper-release/native-victory.json)、[完整流程](qa/keeper-release/native-flow.txt)、[重启一致性](qa/keeper-release/native-resume-check.json)、[升级及新局](qa/keeper-release/native-menu-check.json)、[实际战斗画面](screenshots/character-rebuild/native-gameplay.png)。
+另外实玩重锤至第 7 节点，覆盖按住蓄力、提前释放、范围技、破势、追击、换波和失败结算。重锤局种子 **1727069451** 在第一位首领奖励处正常退出进程再启动，恢复前后整份 Run JSON 完全相同。失败后重新选择灯杖，并完成上述最终通关。弯刀补测覆盖放灯、移动、跳跃、格挡、闪避和明暗切换。
 
-原生完整通关使用键盘。原生物理鼠标不列为已验证项；相同界面的 EventSystem 指针路径与 WebGL 发布版鼠标操作分别经过测试。
+通关后，实际在工坊购买生命 3 → 4 级，扣费 **51**（329 → 278）；新弯刀局基础最大生命 **156 → 168**。测试全程使用 QA 存档键，主存档未改写。
 
-## WebGL 真实游玩
+证据：[原生胜利](screenshots/combat-polish/native-victory.png)、[运行状态](qa/combat-polish/native-victory.json)、[流程](qa/combat-polish/native-flow.txt)、[进程重启一致性](qa/combat-polish/native-resume-check.json)、[升级核对](qa/combat-polish/native-menu-check.json)、[输入补测](qa/combat-polish/native-controls.json)。
 
-独立测试地址 `http://127.0.0.1:8921`，与常用地址 8920 的存档隔离。用鼠标购买生命与攻击升级，余烬 102 → 36；生命等级 1 → 2、攻击等级 2 → 3，分别扣费 27 和 39。
+原生验收通过的是键盘操作。工具发出的原生鼠标点击未能确认生效，不列为通过项；Unity EventSystem 指针路径与浏览器实际鼠标路径均另行通过。原生捕捉工具曾发生错误，因此后续每段操作结束立即暂停再取图，避免工具停顿期间角色继续受击。
 
-以种子 **1324792217** 开始新冒险，引星灯杖，完整走过 12 个节点和 3 位首领，第三节点主动选择险路并完成三波。最终击败 **64** 个敌人，胜利生命 **136 / 164**，战斗计时 **01:22**，11 个遗物，营地余烬 **131**。
+## 最终 WebGL 发布版实玩
 
-实际验证鼠标长按攻击、右键技能、鼠标奖励选择、药水、闪避、补给和遗物叠加。在第一位首领后刷新页面，恢复至同一奖励节点，生命 138 / 144、药水 3、时间 00:34 与刷新前一致。检查了常规 1280×720 浏览区域和 1920×1080 全屏；胜利布局完整，无文字裁切。控制台错误列表为空。
+独立测试地址 `http://127.0.0.1:8921`，与通常游玩的 8920 端口隔离。最终构建以种子 **800509296**、引星灯杖完成 12 节点和 3 首领，57 次击败；生命 **164 / 196**、时间 **01:29**、9 个遗物、余烬 **281**。控制台错误 **0**。
 
-通关后另开重锤局（种子 797777837），实测移动、长按蓄力、释放攻击、技能与跳跃；随后停止战斗输入，让敌人自然击败角色，确认失败结算与余烬到账。点击再次出发后，第一节点、满生命 144 / 144、药水 3 与零计时正确重置。对应 [重锤画面](screenshots/character-rebuild/web-hammer.jpg)、[失败页](screenshots/character-rebuild/web-loss.jpg)、[失败后重开](screenshots/character-rebuild/web-after-loss-restart.jpg) 与 [补充流程](qa/keeper-release/web-controls-death.json)。
+第一位首领后刷新页面，再点击继续：仍处于同一奖励节点，生命 **134 / 156**、药水 **4**、时间 **00:24**，三项奖励一致。证据：[刷新前](screenshots/combat-polish/final-web-before-refresh.jpg)、[刷新后](screenshots/combat-polish/final-web-after-refresh.jpg)。
 
-证据：[浏览器胜利](screenshots/character-rebuild/web-victory.jpg)、[最终战](screenshots/character-rebuild/web-final-battle.jpg)、[刷新恢复](screenshots/character-rebuild/web-restored.jpg)、[全屏](screenshots/character-rebuild/web-fullscreen.jpg)、[流程日志](qa/keeper-release/web-flow.json)、[错误列表](qa/keeper-release/web-errors.json)。
+最终通关证据：[胜利画面](screenshots/combat-polish/web-victory.jpg)、[流程日志](qa/combat-polish/web-flow.json)、[错误列表](qa/combat-polish/web-errors.json)。
 
-## 本轮修正与视觉检查
+在本轮较早候选构建中，还以弯刀种子 **596543591** 实际完成全流程及一次三波险路，65 次击败，生命 46 / 164、时间 02:41；验证鼠标长按攻击、右键技能、奖励点击、放灯、前后纵深走位、闪避和格挡。随后实玩重锤、自然失败及灯杖重开，并核对升级扣费。该轮之后发现并修正了待机握持遮挡和满蓄力姿势回跳，所以另做了上面的最终构建通关，不把早期候选证据冒充最终文件。
 
-| 发现的问题 | 修正 |
+候选证据保留在 [弯刀通关](screenshots/combat-polish/web-blade-victory.jpg)、[弯刀流程](qa/combat-polish/web-blade-flow.json)、[候选构建身份](qa/combat-polish/blade-candidate-build.json)、[额外控制与失败流程](qa/combat-polish/web-controls-death.json)。检查过 1280×720、1920×1080 全屏以及较窄面板中的等比画面，菜单与 HUD 没有裁切。
+
+## 本轮发现并修正
+
+| 问题 | 修正与复查 |
 | --- | --- |
-| 写实/程序拼装人物偏离确认稿 | 以确认稿进行本地三维重建，保留真实网格、侧背视图与灰模检查 |
-| 侧面重影、手心和披风串色 | 四个几何对齐视图、可见性判断、遮挡面修补、同网格烘焙 |
-| 持灯与挥砍时网格拉丝 | 修正骨骼热权重的跨臂/腿泄漏，按实际边长平滑权重 |
-| 铜肩甲随手臂融化 | 拆出有厚度的刚性肩甲，保留下层柔性袖子 |
-| 肩甲薄边法线反向 | 内外壳交界采用硬边法线 |
-| 提灯挂环埋入手套、背包装备悬离身体 | 调整真实装备的握持和贴身位置 |
-| 编辑器截图与 OBJ 漏掉蒙皮身体 | 检查/导出包含 SkinnedMeshRenderer，并明确 BakeMesh 后取图 |
-| 多轮生成累积废弃资源 | 按实际 prefab、场景与 Resources 依赖清理无引用生成资产 |
+| 三种武器和三段连击共用摆臂 | 独立准备、出手、接触、回收姿势，逐姿势检查 |
+| 武器合批进前臂，旋转节点无效 | 保留 Weapon 活动节点，验证其实际渲染网格 |
+| 重锤/灯杖待机被躯干遮挡 | 双朝向轮廓调整与检查 |
+| 满蓄力进入攻击时突然落回待机 | 从当前蓄力姿势直接进入挥击，增加连续性断言 |
+| 特效材质块在静态构造阶段初始化报错 | 移到场景 Setup，重新运行完整 Play Mode |
+| 受击闪色未连接、击退瞬移、死亡直接消失 | 材质闪色、速度衰减、独立死亡过渡及生命周期测试 |
+| 提示范围与时间读不清 | 外轮廓对应真实伤害范围，计时线推进至边界 |
+| 跳跃阴影离地 | 独立地面阴影，随离地高度收缩 |
 
-实际 Unity 模型视图位于 `screenshots/character-rebuild/unity-*.png`；`unity-clay.png` 可直接检查去掉绘制图集后的真实形体。确认稿、绘制参考、编辑器渲染与发布版截图分别记录，不相互替代。制作与 AI 辅助来源见 [角色说明](../ArtSource/Characters/README.md)。
+## 构建与交付核验
 
-## 构建、性能与交付核验
+Mac 与 WebGL 均成功构建，无 C# 编译或 Shader 错误。两份构建清单记录 **8317** 个运行资源文件和实际发布文件的 SHA256，两端运行资源身份相同。
 
-两种构建均成功，无 C# 编译或 Shader 错误。`keeper-release/mac-build.json` 与 `web-build.json` 记录每个运行资源及实际构建文件的 SHA256；两者的运行资源身份一致。`Tools/verify_release.py` 对照这些摘要、最新通关证据和 HTTP 实际内容。`Tools/package.py` 先执行该核验，再检查压缩包 CRC、逐文件 SHA256 和 Mac 可执行权限。
+原生测试会话记录平均 **54.5 FPS**、约 **168 MB**，最大帧 **1001 ms**；它包含多次启动/场景加载和取图，不表示纯战斗稳态性能。最终 WebGL 实测段平均 **59.9 FPS**、约 **117 MB**，最大帧 **113 ms**。没有宣称所有设备恒定 60 FPS。
 
-原生重启后的实测段平均 **58.5 FPS**、内存约 **156 MB**；最大记录帧 432 ms，首次启动段最大 617 ms。WebGL 实测段平均 **59.8 FPS**、内存约 **115 MB**，最大记录帧 108 ms。统计包含加载和界面切换，不表示每帧恒定 60 FPS。
+`Tools/verify_release.py` 对照最新源码与构建摘要、测试结果、真实通关、重启和升级证据，并逐文件验证 HTTP 响应与 WASM MIME。`Tools/package.py` 先执行该核验，再检验三个交付压缩包的 CRC、每个文件的 SHA256 和 Mac 可执行权限。结果见 [release-verification.json](qa/combat-polish/release-verification.json) 与 `release/checksums.json`。
 
-测试覆盖上述设备、构建与操作；没有将未实测平台写成已通过。当前已定位的运行错误和严重变形均修复并复查。最终交付校验见 [release-verification.json](qa/keeper-release/release-verification.json)。
+本轮已发现的游戏运行错误与上述表现问题均已修正并复查。测试覆盖这里明确列出的设备、构建和操作，不以测试通过推断所有环境永远没有问题。

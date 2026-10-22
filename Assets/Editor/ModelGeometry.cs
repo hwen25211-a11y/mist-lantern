@@ -29,8 +29,15 @@ namespace Mist.Editor
             {
                 try {
                     foreach(var skin in UnityEngine.Object.FindObjectsOfType<SkinnedMeshRenderer>().Where(s=>s.enabled)) {
-                        var mesh=new Mesh();skin.BakeMesh(mesh);var g=new GameObject("Review pose bake");temporary.Add(g);
-                        g.transform.SetParent(skin.transform,false);g.AddComponent<MeshFilter>().sharedMesh=mesh;g.AddComponent<MeshRenderer>().sharedMaterials=skin.sharedMaterials;
+                        var mesh=new Mesh();
+                        // Remove mirrored ancestors only while baking. Skin baking
+                        // otherwise folds the mirror into vertices and a static
+                        // renderer under the same hierarchy would apply it twice.
+                        var mirrored=new List<KeyValuePair<Transform,Vector3>>();
+                        for(var parent=skin.transform;parent;parent=parent.parent){var scale=parent.localScale;if(scale.x<0||scale.y<0||scale.z<0){mirrored.Add(new KeyValuePair<Transform,Vector3>(parent,scale));parent.localScale=new Vector3(Mathf.Abs(scale.x),Mathf.Abs(scale.y),Mathf.Abs(scale.z));}}
+                        try{skin.BakeMesh(mesh);}finally{foreach(var item in mirrored)item.Key.localScale=item.Value;}
+                        var g=new GameObject("Review pose bake");temporary.Add(g);
+                        g.transform.SetParent(skin.transform,false);g.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=g.AddComponent<MeshRenderer>();renderer.sharedMaterials=skin.sharedMaterials;var properties=new MaterialPropertyBlock();skin.GetPropertyBlock(properties);renderer.SetPropertyBlock(properties);
                         skins.Add(skin);skin.enabled=false;
                     }
                 } catch {Dispose();throw;}

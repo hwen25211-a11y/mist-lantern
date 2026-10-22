@@ -35,6 +35,8 @@ Material:
     m_Floats:
     - _CavityStrength: 1
     - _CraftStrength: 0.12
+    - _Dissolve: 0
+    - _ImpactFlash: 0
     - _Metallic: 0
     - _OutlineWidth: 0.0025
     - _Smoothness: 0.06

@@ -50,7 +50,7 @@ namespace Mist.Editor
                 new GameObject("Mist Lantern scene marker");EditorSceneManager.SaveScene(scene,Scene);
             }
             EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(Scene,true)};
-            PlayerSettings.companyName="Mist Lantern Studio";PlayerSettings.productName="雾灯遗城";PlayerSettings.bundleVersion="1.1.0";
+            PlayerSettings.companyName="Mist Lantern Studio";PlayerSettings.productName="雾灯遗城";PlayerSettings.bundleVersion="1.2.0";
             PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.Standalone,"com.MistLantern.Game");
             PlayerSettings.defaultScreenWidth=1440;PlayerSettings.defaultScreenHeight=810;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;PlayerSettings.resizableWindow=true;
             PlayerSettings.runInBackground=false;PlayerSettings.colorSpace=ColorSpace.Gamma;

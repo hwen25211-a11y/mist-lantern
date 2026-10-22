@@ -1,0 +1,15 @@
+{
+  "seed": 800509296,
+  "room": 3,
+  "phase": "Reward",
+  "hp": 134,
+  "maxHp": 156,
+  "potions": 4,
+  "time": "00:24",
+  "offers": [
+    "夜行围巾",
+    "回流灯罩",
+    "锋利灯芯"
+  ],
+  "visible_state_identical_after_refresh": true
+}

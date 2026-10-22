@@ -59,7 +59,7 @@ newmtl m8
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 9
+Ns 33
 d 1
 
 newmtl m9
@@ -80,28 +80,28 @@ newmtl m11
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 72
+Ns 9
 d 1
 
 newmtl m12
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 9
+Ns 57
 d 1
 
 newmtl m13
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 9
+Ns 78
 d 1
 
 newmtl m14
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 9
+Ns 72
 d 1
 
 newmtl m15
@@ -115,35 +115,35 @@ newmtl m16
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 33
+Ns 9
 d 1
 
 newmtl m17
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 78
+Ns 9
 d 1
 
 newmtl m18
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 33
+Ns 9
 d 1
 
 newmtl m19
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 78
+Ns 33
 d 1
 
 newmtl m20
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2
-Ns 9
+Ns 78
 d 1
 
 newmtl m21
@@ -161,6 +161,27 @@ Ns 78
 d 1
 
 newmtl m23
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 9
+d 1
+
+newmtl m24
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 33
+d 1
+
+newmtl m25
+Kd 1 1 1
+Ka 0.1 0.1 0.1
+Ks 0.2 0.2 0.2
+Ns 78
+d 1
+
+newmtl m26
 Kd 1 1 1
 Ka 0.1 0.1 0.1
 Ks 0.2 0.2 0.2

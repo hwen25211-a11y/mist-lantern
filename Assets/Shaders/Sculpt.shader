@@ -1,5 +1,7 @@
 Shader "Mist/Sculpt" {
  Properties {
+  _ImpactFlash("Contact flash",Range(0,1))=0
+  _Dissolve("Defeat dissolve",Range(0,1))=0
   _Color("Pigment",Color)=(1,1,1,1)
   _CraftTex("Craft surfaces",2D)="gray"{}
   _DetailTex("Stone pigment",2D)="gray"{}
@@ -21,17 +23,17 @@ Shader "Mist/Sculpt" {
   #pragma vertex vert
   #pragma fragment frag
   #include "UnityCG.cginc"
-  float _OutlineWidth;fixed4 _Outline;
-  struct v2f{float4 pos:SV_POSITION;};
-  v2f vert(appdata_base v){v2f o;v.vertex.xyz+=v.normal*_OutlineWidth;o.pos=UnityObjectToClipPos(v.vertex);return o;}
-  fixed4 frag(v2f i):SV_Target{return _Outline;}
+  float _OutlineWidth,_Dissolve;fixed4 _Outline;
+  struct v2f{float4 pos:SV_POSITION;float3 world:TEXCOORD0;};
+  v2f vert(appdata_base v){v2f o;v.vertex.xyz+=v.normal*_OutlineWidth;o.pos=UnityObjectToClipPos(v.vertex);o.world=mul(unity_ObjectToWorld,v.vertex).xyz;return o;}
+  fixed4 frag(v2f i):SV_Target{clip(frac(sin(dot(floor(i.world*55),float3(12.9898,78.233,37.719)))*43758.5453)+.001-_Dissolve);return _Outline;}
   ENDCG
  }
  CGPROGRAM
  #pragma surface surf Sculpt fullforwardshadows addshadow vertex:vert
  #pragma target 3.0
  #include "UnityPBSLighting.cginc"
- fixed4 _Color,_EmissionColor;half _Metallic,_Smoothness;float _SurfaceType,_CraftStrength,_CavityStrength,_ToonSkin;sampler2D _DetailTex,_CraftTex;
+ fixed4 _Color,_EmissionColor;half _Metallic,_Smoothness;float _ImpactFlash,_Dissolve,_SurfaceType,_CraftStrength,_CavityStrength,_ToonSkin;sampler2D _DetailTex,_CraftTex;
  struct Input{float3 localPos;float3 localNormal;float3 worldPos;float3 worldNormal;float3 viewDir;float4 color:COLOR;};
  void vert(inout appdata_full v,out Input o){UNITY_INITIALIZE_OUTPUT(Input,o);o.color=v.color;o.localPos=v.vertex.xyz;o.localNormal=v.normal;}
  half4 LightingSculpt(SurfaceOutput s,half3 lightDir,half3 viewDir,half atten){
@@ -45,6 +47,7 @@ Shader "Mist/Sculpt" {
   return half4(rgb,s.Alpha);
  }
  void surf(Input i,inout SurfaceOutput o){
+  clip(frac(sin(dot(floor(i.worldPos*55),float3(12.9898,78.233,37.719)))*43758.5453)+.001-_Dissolve);
   // Geometric cavity is baked into vertex alpha; the surface remains fully opaque.
   half ao=lerp(1,lerp(.38,1,saturate(i.color.a)),_CavityStrength);
   half textureVariation=sin(i.worldPos.x*63+i.worldPos.y*37)*sin(i.worldPos.z*71-i.worldPos.y*43);
@@ -67,8 +70,9 @@ Shader "Mist/Sculpt" {
    pigment=lerp(1,.65+grain*.85,(_SurfaceType<3.5?.5:.85)*_CraftStrength);
   }
   o.Albedo=_Color.rgb*i.color.rgb*ao*pigment*(.985+textureVariation*.015);
+  o.Albedo=lerp(o.Albedo,fixed3(1,.91,.73),_ImpactFlash);
   o.Gloss=_Smoothness;o.Specular=.3;
-  o.Emission=_EmissionColor.rgb*.4;
+  o.Emission=_EmissionColor.rgb*.4+_ImpactFlash*.38;
   o.Alpha=1;
  }
  ENDCG

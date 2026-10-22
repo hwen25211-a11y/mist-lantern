@@ -22,23 +22,23 @@ PASS complete run save roundtrip
 PASS broken save rejected
 PASS out of range save rejected
 PASS settlement idempotent
-PASS complete seed=7 weapon=0 phase=Won room=11 hp=114 time=116.5025
+PASS complete seed=7 weapon=0 phase=Won room=11 hp=114 time=108.302
 PASS all rooms and one final settlement 7/0
-PASS complete seed=42 weapon=0 phase=Won room=11 hp=94 time=93.65112
+PASS complete seed=42 weapon=0 phase=Won room=11 hp=94 time=87.05071
 PASS all rooms and one final settlement 42/0
-PASS complete seed=2026 weapon=0 phase=Won room=11 hp=94 time=131.9534
+PASS complete seed=2026 weapon=0 phase=Won room=11 hp=94 time=121.5028
 PASS all rooms and one final settlement 2026/0
-PASS complete seed=7 weapon=1 phase=Won room=11 hp=120 time=91.30097
+PASS complete seed=7 weapon=1 phase=Won room=11 hp=120 time=96.30128
 PASS all rooms and one final settlement 7/1
-PASS complete seed=42 weapon=1 phase=Won room=11 hp=120 time=82.90046
+PASS complete seed=42 weapon=1 phase=Won room=11 hp=120 time=81.10035
 PASS all rooms and one final settlement 42/1
-PASS complete seed=2026 weapon=1 phase=Won room=11 hp=120 time=116.8025
+PASS complete seed=2026 weapon=1 phase=Won room=11 hp=120 time=116.0525
 PASS all rooms and one final settlement 2026/1
-PASS complete seed=7 weapon=2 phase=Won room=11 hp=120 time=89.95089
+PASS complete seed=7 weapon=2 phase=Won room=11 hp=120 time=85.60062
 PASS all rooms and one final settlement 7/2
-PASS complete seed=42 weapon=2 phase=Won room=11 hp=120 time=73.7499
+PASS complete seed=42 weapon=2 phase=Won room=11 hp=120 time=75.50001
 PASS all rooms and one final settlement 42/2
-PASS complete seed=2026 weapon=2 phase=Won room=11 hp=120 time=133.8036
+PASS complete seed=2026 weapon=2 phase=Won room=11 hp=120 time=140.704
 PASS all rooms and one final settlement 2026/2
 PASS idle player dies without softlock
 PASS loss settles currency

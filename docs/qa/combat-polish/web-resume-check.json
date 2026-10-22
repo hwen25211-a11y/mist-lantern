@@ -1,0 +1,16 @@
+{
+  "room": 3,
+  "phase": "Reward",
+  "hp": 136,
+  "maxHp": 144,
+  "potions": 1,
+  "time": "01:06",
+  "offers": [
+    "深雾契约",
+    "旧城护符",
+    "折光铜镜"
+  ],
+  "visible_state_identical_after_refresh": true,
+  "before": "docs/screenshots/combat-polish/web-before-refresh.jpg",
+  "after": "docs/screenshots/combat-polish/web-after-refresh.jpg"
+}

@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "build_manifest_sha256": {
+    "mac": "6079a9a2eb6dfb536ebedf8982aaf0ff6b634919655508b845d880fb21e094ea",
+    "web": "526ceb711b8e9e47179c76706ff49c1a74001ed970636f495d1bcbfec70f8785"
+  },
+  "http": [
+    {
+      "file": "index.html",
+      "bytes": 3630,
+      "mime": "text/html",
+      "sha256": "35cfce59dcdf32b7e8ded0f285fab191368cceea2229ed2752ddcb12a99a7fd2"
+    },
+    {
+      "file": "Build/WebGL.data",
+      "bytes": 52352639,
+      "mime": "application/octet-stream",
+      "sha256": "33b1e529a2fd96a54e6ee8f02c7c256c6bbd660fd30a01b5586e79810cd5af8b"
+    },
+    {
+      "file": "Build/WebGL.framework.js",
+      "bytes": 376075,
+      "mime": "text/javascript",
+      "sha256": "d6850ddb42e647b06343a5e907eb511b0062ccfd4fddddc16a5a715b9a0b2857"
+    },
+    {
+      "file": "Build/WebGL.loader.js",
+      "bytes": 20680,
+      "mime": "text/javascript",
+      "sha256": "95d413ec942c6764ee89174a13da7a4c7f80567f6a4fb43992a6e8273c3b93d2"
+    },
+    {
+      "file": "Build/WebGL.wasm",
+      "bytes": 16060357,
+      "mime": "application/wasm",
+      "sha256": "0f3daa8c662f3656398a23bc9e7130c28a9981136c2b600fff349daa8b22d02a"
+    }
+  ],
+  "native_win_seed": 1097819237,
+  "checks_passed": true
+}

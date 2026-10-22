@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Verify the current Keeper release against build identities and fresh play evidence."""
+"""Verify the current combat polish release against build identities and fresh play evidence."""
 from pathlib import Path
 import hashlib,json,plistlib,re,urllib.request
 root=Path(__file__).resolve().parents[1]
-qa=root/'docs/qa';current=qa/'keeper-release';version='1.1.0'
+qa=root/'docs/qa';current=qa/'combat-polish';version='1.2.0'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 assert 'RULES_OK assertions=44' in (qa/'rules.txt').read_text()
 assert 'COMBAT_OK assertions=34' in (qa/'combat-v2.txt').read_text()
+assert 'POLISH_OK assertions=88' in (current/'checks.txt').read_text()
 play=(qa/'play-results.txt').read_text();assert 'PLAY_OK errors=0 overflow=0' in play
 for weapon in range(3):assert 'runtime complete all rooms with weapon '+str(weapon)+' room=11' in play
 assert 'edge stretch below 6' in (qa/'character-rebuild/mesh-checks.txt').read_text()
@@ -17,6 +18,7 @@ assert json.loads((current/'native-resume-check.json').read_text())['run_identic
 menu=json.loads((current/'native-menu-check.json').read_text());assert menu['muted'] and menu['new_max_hp']==menu['previous_max_hp']+12 and menu['embers_after']==menu['embers_before']-menu['cost']
 webflow=json.loads((current/'web-flow.json').read_text());assert any('phase=Won' in entry['message']for entry in webflow)
 assert json.loads((current/'web-errors.json').read_text())==[]
+assert json.loads((current/'final-web-resume-check.json').read_text())['visible_state_identical_after_refresh']
 info=plistlib.loads((root/'Build/macOS/雾灯遗城.app/Contents/Info.plist').read_bytes());assert info['CFBundleShortVersionString']==version
 html=(root/'Build/WebGL/index.html').read_text();assert 'v'+version in html and 'productVersion:"'+version+'"' in html
 identities={}
@@ -26,6 +28,7 @@ for kind in ['mac','web']:
  for name,digest in manifest['runtime_sources'].items():assert sha(root/name)==digest,('source changed after build',kind,name)
  for name,digest in manifest['artifacts'].items():assert sha(root/name)==digest,('build changed',kind,name)
  identities[kind]=sha(current/(kind+'-build.json'))
+assert json.loads((current/'mac-build.json').read_text())['runtime_sources']==json.loads((current/'web-build.json').read_text())['runtime_sources']
 http=[];web=root/'Build/WebGL'
 for file in [web/'index.html']+sorted((web/'Build').glob('*')):
  if not file.is_file():continue

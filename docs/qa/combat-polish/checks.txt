@@ -1,0 +1,94 @@
+PASS empty swing does not invent damage or contact pause
+PASS contact carries actual target, direction and damage
+PASS hit imparts velocity without teleporting target
+PASS knockback moves continuously and damps
+PASS save preserves ongoing physical reaction
+PASS late light-attack tap buffers into next combo without holding
+PASS fully charged hammer keeps its anticipation pose when strike begins
+PASS sound waveform finite, unclipped and centered 0 windup
+PASS sound waveform finite, unclipped and centered 0 attack
+PASS sound waveform finite, unclipped and centered 0 hit
+PASS sound waveform finite, unclipped and centered 0 kill
+PASS sound waveform finite, unclipped and centered 0 parry
+PASS sound waveform finite, unclipped and centered 0 heal
+PASS sound waveform finite, unclipped and centered 1 windup
+PASS sound waveform finite, unclipped and centered 1 attack
+PASS sound waveform finite, unclipped and centered 1 hit
+PASS sound waveform finite, unclipped and centered 1 kill
+PASS sound waveform finite, unclipped and centered 1 parry
+PASS sound waveform finite, unclipped and centered 1 heal
+PASS sound waveform finite, unclipped and centered 2 windup
+PASS sound waveform finite, unclipped and centered 2 attack
+PASS sound waveform finite, unclipped and centered 2 hit
+PASS sound waveform finite, unclipped and centered 2 kill
+PASS sound waveform finite, unclipped and centered 2 parry
+PASS sound waveform finite, unclipped and centered 2 heal
+PASS idle weapon head clears torso in both facings 1 -1
+PASS idle weapon head clears torso in both facings 1 1
+PASS idle weapon head clears torso in both facings 2 -1
+PASS idle weapon head clears torso in both facings 2 1
+PASS finite posed skin 0/1/0 Keeper runtime body
+PASS finite posed skin 0/1/0 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/1/0 Keeper rigid right pauldron
+PASS finite posed skin 0/1/1 Keeper runtime body
+PASS finite posed skin 0/1/1 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/1/1 Keeper rigid right pauldron
+PASS weapon pivot owns rendered mesh 0
+POSE weapon=0 combo=1 contact_tip=(0.913, 1.576, -0.665)
+PASS finite posed skin 0/1/2 Keeper runtime body
+PASS finite posed skin 0/1/2 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/1/2 Keeper rigid right pauldron
+PASS actual combat pose edge stretch < 6, weapon=0 combo=1 ratio=4.878
+PASS finite posed skin 0/2/0 Keeper runtime body
+PASS finite posed skin 0/2/0 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/2/0 Keeper rigid right pauldron
+PASS finite posed skin 0/2/1 Keeper runtime body
+PASS finite posed skin 0/2/1 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/2/1 Keeper rigid right pauldron
+PASS weapon pivot owns rendered mesh 0
+POSE weapon=0 combo=2 contact_tip=(1.263, 1.581, -0.217)
+PASS finite posed skin 0/2/2 Keeper runtime body
+PASS finite posed skin 0/2/2 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/2/2 Keeper rigid right pauldron
+PASS actual combat pose edge stretch < 6, weapon=0 combo=2 ratio=5.172
+PASS finite posed skin 0/3/0 Keeper runtime body
+PASS finite posed skin 0/3/0 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/3/0 Keeper rigid right pauldron
+PASS finite posed skin 0/3/1 Keeper runtime body
+PASS finite posed skin 0/3/1 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/3/1 Keeper rigid right pauldron
+PASS weapon pivot owns rendered mesh 0
+POSE weapon=0 combo=3 contact_tip=(0.867, 1.746, -0.582)
+PASS finite posed skin 0/3/2 Keeper runtime body
+PASS finite posed skin 0/3/2 Leather | concealed shoulder sleeve
+PASS finite posed skin 0/3/2 Keeper rigid right pauldron
+PASS actual combat pose edge stretch < 6, weapon=0 combo=3 ratio=4.227
+PASS finite posed skin 1/1/0 Keeper runtime body
+PASS finite posed skin 1/1/0 Leather | concealed shoulder sleeve
+PASS finite posed skin 1/1/0 Keeper rigid right pauldron
+PASS finite posed skin 1/1/1 Keeper runtime body
+PASS finite posed skin 1/1/1 Leather | concealed shoulder sleeve
+PASS finite posed skin 1/1/1 Keeper rigid right pauldron
+PASS weapon pivot owns rendered mesh 1
+POSE weapon=1 combo=1 contact_tip=(0.843, 1.662, -0.538)
+PASS finite posed skin 1/1/2 Keeper runtime body
+PASS finite posed skin 1/1/2 Leather | concealed shoulder sleeve
+PASS finite posed skin 1/1/2 Keeper rigid right pauldron
+PASS actual combat pose edge stretch < 6, weapon=1 combo=1 ratio=4.370
+PASS finite posed skin 2/1/0 Keeper runtime body
+PASS finite posed skin 2/1/0 Leather | concealed shoulder sleeve
+PASS finite posed skin 2/1/0 Keeper rigid right pauldron
+PASS finite posed skin 2/1/1 Keeper runtime body
+PASS finite posed skin 2/1/1 Leather | concealed shoulder sleeve
+PASS finite posed skin 2/1/1 Keeper rigid right pauldron
+PASS weapon pivot owns rendered mesh 2
+POSE weapon=2 combo=1 contact_tip=(1.102, 1.545, -0.237)
+PASS finite posed skin 2/1/2 Keeper runtime body
+PASS finite posed skin 2/1/2 Leather | concealed shoulder sleeve
+PASS finite posed skin 2/1/2 Keeper rigid right pauldron
+PASS actual combat pose edge stretch < 6, weapon=2 combo=1 ratio=3.227
+PASS combat effect pool remains bounded
+PASS killed actor remains as a separate visual after enemy list changes
+PASS death and impact effects finish while reward menu freezes gameplay
+PASS reset clears retired actors and active effects
+POLISH_OK assertions=88

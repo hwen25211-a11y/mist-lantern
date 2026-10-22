@@ -14,6 +14,6 @@ sources={str(p.relative_to(root)):sha(p)for folder in folders for p in sorted((r
 build=root/('Build/macOS/雾灯遗城.app'if kind=='mac'else 'Build/WebGL')
 artifacts={str(p.relative_to(root)):sha(p)for p in sorted(build.rglob('*'))if p.is_file()and p.name!='.DS_Store'}
 assert artifacts
-out=root/'docs/qa/keeper-release';out.mkdir(parents=True,exist_ok=True)
-(out/(kind+'-build.json')).write_text(json.dumps({'version':'1.1.0','built_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'runtime_sources':sources,'artifacts':artifacts},ensure_ascii=False,indent=2))
+out=root/'docs/qa/combat-polish';out.mkdir(parents=True,exist_ok=True)
+(out/(kind+'-build.json')).write_text(json.dumps({'version':'1.2.0','built_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'runtime_sources':sources,'artifacts':artifacts},ensure_ascii=False,indent=2))
 print('BUILD_MANIFEST_OK',kind,'sources',len(sources),'artifacts',len(artifacts))

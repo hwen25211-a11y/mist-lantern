@@ -11,6 +11,8 @@ Unity 2022.3.62f3c1 / C#，中文单机 2.5D 动作 Rogue-lite。
 - 源工程：Unity Hub 打开本目录，使用 `Assets/Scenes/MistLantern.unity`；`ModelGallery.unity` 展示可编辑模型。
 - 交付包位于 `release`，版本以包名和 `BUILD-INFO.txt` 为准。
 
+v1.2 增加独立武器动作、真实刀刃轨迹、受击与死亡过渡、平滑击退、倒计时危险区和紧凑战斗 HUD，详见 [本轮打磨](docs/COMBAT-POLISH.md)。
+
 游戏默认静音。测试要求、实际覆盖与修复记录见 [QA.md](docs/QA.md)。
 
 ## 操作与战斗
@@ -38,6 +40,6 @@ Unity 2022.3.62f3c1 / C#，中文单机 2.5D 动作 Rogue-lite。
 
 ## 开发
 
-`Tools/build.sh prepare|models|gallery|checks|smoke|mac|web`。同一工程一次只运行一个 Unity 编辑器。
+`Tools/build.sh prepare|models|gallery|polish|checks|smoke|mac|web`。同一工程一次只运行一个 Unity 编辑器。
 
 开发说明见 [DEVELOPMENT.md](docs/DEVELOPMENT.md)，当前设计见 [DESIGN.md](docs/DESIGN.md)。

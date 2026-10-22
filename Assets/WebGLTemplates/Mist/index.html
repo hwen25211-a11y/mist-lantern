@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-  <header><strong>雾灯遗城</strong><span>一盏灯，一座城，一次归途 · v1.1.0</span><button id="fullscreen" type="button">全屏游玩</button></header>
+  <header><strong>雾灯遗城</strong><span>一盏灯，一座城，一次归途 · v1.2.0</span><button id="fullscreen" type="button">全屏游玩</button></header>
   <main><div id="frame"><canvas id="unity-canvas" width="1600" height="900" tabindex="0" aria-label="雾灯遗城游戏画面"></canvas><div id="loading"><strong>雾灯遗城</strong><progress id="progress" max="1" value="0"></progress><div id="status">正在点亮提灯…首次加载需要稍候。</div></div></div></main>
   <footer>WASD 移动 · J 攻击 · K 闪避 · Space 跳跃 · L 技能 · Q 灯态 · R 放灯 · C 格挡 · F 药水 · Esc 暂停　｜　默认静音</footer>
   <script>
@@ -32,7 +32,7 @@
       frameworkUrl:"Build/{{{ FRAMEWORK_FILENAME }}}",
       codeUrl:"Build/{{{ CODE_FILENAME }}}",
       streamingAssetsUrl:"StreamingAssets",
-      companyName:"Mist Lantern Studio",productName:"雾灯遗城",productVersion:"1.1.0",
+      companyName:"Mist Lantern Studio",productName:"雾灯遗城",productVersion:"1.2.0",
       matchWebGLToCanvasSize:true,
       showBanner:(message,type)=>{if(type==="error"){document.getElementById("status").textContent="加载遇到问题："+message;document.getElementById("loading").style.display="flex";}}
     },p=>document.getElementById("progress").value=p).then(instance=>{

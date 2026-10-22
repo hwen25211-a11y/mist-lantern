@@ -20,7 +20,9 @@ namespace Mist
         public Transform canvas,overlay,hud;
         public string Screen="title";
         TextMeshProUGUI healthText,oilText,roomText,hintText,flaskText,weaponText,modeText,toastText;
-        Image hpBar,oilBar,skillBar,bossBar;
+        Image hpBar,oilBar,skillBar,bossBar,hpTrail,bossTrail,bossTrack,resourceBar;
+        TextMeshProUGUI resourceText,skillText;
+        float displayedHp=-1,displayedBoss=-1,hpHold,bossHold,lastHp,lastBoss;int bossId=-1;
         TextMeshProUGUI bossText;
         readonly Dictionary<int,RectTransform> bars=new Dictionary<int,RectTransform>();
         Transform enemyHud;
@@ -71,7 +73,7 @@ namespace Mist
         }
         public void Title()
         {
-            InTitle=true;Paused=false;sim=null;world.ResetModels();hud.gameObject.SetActive(false);ClearOverlay("title");
+            InTitle=true;Paused=false;sim=null;displayedHp=-1;bossId=-1;world.ResetModels();hud.gameObject.SetActive(false);ClearOverlay("title");
             var art=UI.Rect("Title art",overlay,0,0,1600,900).gameObject.AddComponent<RawImage>();
             art.texture=Resources.Load<Texture2D>("Art/Title");art.raycastTarget=false;
             UI.Panel(overlay,"Menu shade",0,0,610,900,new Color(.035f,.075f,.11f,.7f));
@@ -86,7 +88,7 @@ namespace Mist
             UI.Button(overlay,"Guide","操作与玩法",88,704,245,52,()=>Guide(true));
             UI.Button(overlay,"Audio",sound.Muted?"声音：关":"声音：开",345,704,123,52,()=>{sound.Toggle();Title();});
             UI.Text(overlay,"MenuKeys","Enter 开始 · W 工坊 · H 手册",88,775,470,32,17,UI.Gold);
-            UI.Text(overlay,"Version","v1.1.0  ·  单机冒险  ·  默认静音",88,819,470,28,16,UI.Muted);
+            UI.Text(overlay,"Version","v1.2.0  ·  单机冒险  ·  默认静音",88,819,470,28,16,UI.Muted);
             UI.Text(overlay,"Credits","原创角色与场景 · Unity / C#",1100,849,430,28,16,UI.Muted,false,TextAlignmentOptions.Right);
         }
         void ConfirmNew()
@@ -227,6 +229,7 @@ namespace Mist
             UI.Text(hud,"HunterLabel","守灯人",44,34,170,34,22,UI.Cream,true);
             healthText=UI.Text(hud,"HP","",250,35,210,32,21,UI.Cream,false,TextAlignmentOptions.Right);
             UI.Panel(hud,"HP track",44,76,414,15,Models.Hex("334650"));
+            hpTrail=UI.Panel(hud,"Recent damage",44,76,414,15,Models.Hex("E6BF83"));
             hpBar=UI.Panel(hud,"HP fill",44,76,414,15,Models.Hex("D17866"));
             UI.Panel(hud,"Oil track",44,100,414,8,Models.Hex("334650"));
             oilBar=UI.Panel(hud,"Oil fill",44,100,414,8,UI.Gold);
@@ -234,16 +237,26 @@ namespace Mist
             modeText=UI.Text(hud,"Mode","",530,69,540,31,18,UI.Gold,false,TextAlignmentOptions.Center);
             UI.Button(hud,"Pause","暂停  Esc",1390,26,180,52,Pause);
             UI.Button(hud,"Bag","遗物  I",1192,26,180,52,Inventory);
+            bossTrack=UI.Panel(hud,"Boss track",450,155,700,12,Models.Hex("293D45"));
+            bossTrail=UI.Panel(hud,"Boss recent damage",450,155,700,12,Models.Hex("D5B97C"));
             bossBar=UI.Panel(hud,"BossHP",450,155,700,12,Models.Hex("C77568"));
             bossText=UI.Text(hud,"BossName","",450,122,700,33,22,UI.Cream,true,TextAlignmentOptions.Center);
-            UI.Panel(hud,"Weapon panel",24,802,300,76,new Color(.04f,.09f,.13f,.8f));
-            UI.Panel(hud,"Controls shade",324,812,1252,66,new Color(.04f,.09f,.13f,.62f));
-            weaponText=UI.Text(hud,"WeaponHUD","",45,809,260,35,22,UI.Gold,true);
-            flaskText=UI.Text(hud,"PotionHUD","",45,846,260,28,18,UI.Cream);
-            hintText=UI.Text(hud,"Keys","WASD 移动   J 攻击   K 闪避   Space 跳跃   L 技能   C 格挡",337,820,895,28,20,UI.Cream);
-            oilText=UI.Text(hud,"OilHUD","",337,850,895,24,17,UI.Muted);
-            skillBar=UI.Panel(hud,"Skill ready",1270,855,280,5,UI.Gold);
-            UI.Text(hud,"SkillKey","Q 灯态 · R 放灯",1270,818,280,30,22,UI.Cream);
+            var panelColor=new Color(.04f,.09f,.13f,.84f);
+            UI.Panel(hud,"Weapon panel",24,800,290,78,panelColor);
+            UI.Panel(hud,"Resource panel",330,800,340,58,panelColor);
+            UI.Panel(hud,"Ability panel",686,800,340,58,panelColor);
+            UI.Panel(hud,"Lantern panel",1264,800,312,78,panelColor);
+            weaponText=UI.Text(hud,"WeaponHUD","",44,807,250,33,22,UI.Gold,true);
+            flaskText=UI.Text(hud,"PotionHUD","",44,845,250,26,17,UI.Cream);
+            resourceText=UI.Text(hud,"ResourceHUD","",346,808,308,27,19,UI.Cream);
+            UI.Panel(hud,"Resource track",346,843,308,4,Models.Hex("334650"));
+            resourceBar=UI.Panel(hud,"Resource fill",346,843,308,4,Models.Hex("9CCAC3"));
+            skillText=UI.Text(hud,"SkillHUD","",702,808,308,27,19,UI.Cream);
+            UI.Panel(hud,"Skill track",702,843,308,4,Models.Hex("334650"));
+            skillBar=UI.Panel(hud,"Skill ready",702,843,308,4,UI.Gold);
+            hintText=UI.Text(hud,"Keys","WASD 移动    J 攻击    K 闪避    Space 跳跃    C 格挡",338,865,900,25,17,UI.Muted);
+            UI.Text(hud,"SkillKey","Q 灯态   ·   R 放灯",1280,807,280,30,20,UI.Cream);
+            oilText=UI.Text(hud,"OilHUD","",1280,845,280,24,17,UI.Gold);
             enemyHud=UI.Rect("Enemy health",hud,0,0,1600,900);
             toastText=UI.Text(canvas,"Toast","",280,730,1040,58,24,UI.Cream,true,TextAlignmentOptions.Center);
         }
@@ -251,14 +264,30 @@ namespace Mist
         void UpdateHud()
         {
             var s=sim.s;healthText.text=Mathf.CeilToInt(s.hp)+" / "+s.maxHp;
+            float uiDt=Paused?0:Time.unscaledDeltaTime;
+            if(displayedHp<0||s.hp>displayedHp){displayedHp=s.hp;lastHp=s.hp;}
+            if(s.hp<lastHp)hpHold=.28f;lastHp=s.hp;hpHold=Mathf.Max(0,hpHold-uiDt);
+            if(hpHold<=0)displayedHp=Mathf.MoveTowards(displayedHp,s.hp,uiDt*s.maxHp*.7f);
+            hpTrail.rectTransform.sizeDelta=new Vector2(414*Mathf.Clamp01(displayedHp/s.maxHp),15);
             hpBar.rectTransform.sizeDelta=new Vector2(414*s.hp/s.maxHp,15);oilBar.rectTransform.sizeDelta=new Vector2(414*s.oil/100,8);
             roomText.text=Catalog.Areas[s.room/4]+"   "+(s.room+1)+" / 12";
             modeText.text=(s.bright?(s.lampPlaced?"灯已放置 · 守住光区":"明灯 · 近身破雾甲"):"暗灯 · 正在回油")+"   "+s.wave+"/"+s.waves+" 波";
-            oilText.text="灯油 "+Mathf.FloorToInt(s.oil)+" / 100    技能消耗 "+sim.SkillCost.ToString("0")+"    "+(s.skillCd>0?"冷却 "+s.skillCd.ToString("0.0")+" 秒":"武器技已就绪")+"    "+(s.weapon==0?"锋意":s.weapon==1?"蓄力":"星能")+" "+(s.weapon==1?Mathf.RoundToInt(s.charge/.7f*100):Mathf.RoundToInt(s.resource))+"%";
+            oilText.text="灯油  "+Mathf.FloorToInt(s.oil)+" / 100"+(s.bright?"  · 消耗中":"  · 回复中");
+            float resource=s.weapon==1?Mathf.Clamp01(s.charge/.7f):s.resource/100;
+            resourceText.text=(s.weapon==0?"锋意":s.weapon==1?"蓄力":"星能")+"   "+Mathf.RoundToInt(resource*100)+"%"+(resource>=1?"  · 已蓄满":"");
+            resourceBar.rectTransform.sizeDelta=new Vector2(308*resource,4);resourceBar.color=resource>=1?UI.Gold:Models.Hex("9CCAC3");
+            skillText.text="L 武器技   "+(s.skillCd>0?s.skillCd.ToString("0.0")+" 秒":s.oil<sim.SkillCost?"灯油不足":"就绪");
+            skillText.color=s.skillCd<=0&&s.oil>=sim.SkillCost?UI.Gold:UI.Muted;
             flaskText.text="F 药水 ×"+s.potions+"     "+TimeString(s.elapsed);weaponText.text=Catalog.Weapons[s.weapon];
-            skillBar.rectTransform.sizeDelta=new Vector2(280*(1-s.skillCd/4.8f),5);
-            Enemy boss=s.enemies.Find(e=>e.kind>=4&&e.hp>0);bossBar.gameObject.SetActive(boss!=null);bossText.gameObject.SetActive(boss!=null);
-            if(boss!=null){bossBar.rectTransform.sizeDelta=new Vector2(700*boss.hp/boss.maxHp,12);bossText.text=Catalog.Bosses[s.room/4];}
+            skillBar.rectTransform.sizeDelta=new Vector2(308*Mathf.Clamp01(1-s.skillCd/4.8f),4);
+            Enemy boss=s.enemies.Find(e=>e.kind>=4&&e.hp>0);bossBar.gameObject.SetActive(boss!=null);bossText.gameObject.SetActive(boss!=null);bossTrack.gameObject.SetActive(boss!=null);bossTrail.gameObject.SetActive(boss!=null);
+            if(boss!=null){
+                if(bossId!=boss.id){bossId=boss.id;displayedBoss=lastBoss=boss.hp;bossHold=0;}
+                if(boss.hp<lastBoss)bossHold=.25f;lastBoss=boss.hp;bossHold=Mathf.Max(0,bossHold-uiDt);
+                if(bossHold<=0)displayedBoss=Mathf.MoveTowards(displayedBoss,boss.hp,uiDt*boss.maxHp*.5f);
+                bossTrail.rectTransform.sizeDelta=new Vector2(700*Mathf.Clamp01(displayedBoss/boss.maxHp),12);
+                bossBar.rectTransform.sizeDelta=new Vector2(700*boss.hp/boss.maxHp,12);bossText.text=Catalog.Bosses[s.room/4];
+            }else bossId=-1;
             foreach(var e in s.enemies)
             {
                 RectTransform bar;
@@ -318,12 +347,12 @@ namespace Mist
                     if(TestDriving){input=TestInput;dt=.05f;}
 #endif
                     sim.Tick(dt,input);
-                    foreach(var e in sim.signals){world.Signal(e);sound.Play(e.kind);if(e.kind=="lowoil")Toast("灯油不足 · 按 Q 切至暗灯，稍候回油");if(e.kind=="empty")Toast("灯油耗尽，已切至暗灯");if(e.kind=="wave")Toast("雾中又有脚步声 · 第 "+sim.s.wave+" 波",2);}
+                    foreach(var e in sim.signals){world.Signal(e);sound.Play(e.kind,sim.s.weapon,e.strong);if(e.kind=="lowoil")Toast("灯油不足 · 按 Q 切至暗灯，稍候回油");if(e.kind=="empty")Toast("灯油耗尽，已切至暗灯");if(e.kind=="wave")Toast("雾中又有脚步声 · 第 "+sim.s.wave+" 波",2);}
                     if(Input.GetKeyDown(KeyCode.E)&&sim.s.phase==Phase.Route)Travel(false);
                     RefreshPhase();saveClock+=dt;
                     if(saveClock>8){saveClock=0;Saves.Write(data);}
                 }
-                world.Render(sim.s,dt,!Paused&&sim.s.phase==Phase.Playing);UpdateHud();
+                world.Render(sim.s,dt,!Paused);UpdateHud();
             }
             else world.Render(null,dt,false);
             sound.Apply();

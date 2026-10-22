@@ -1,2 +1,2 @@
-Removed unreferenced generated assets: 358
+Removed unreferenced generated assets: 0
 All Resources and prefab/scene dependencies retained.

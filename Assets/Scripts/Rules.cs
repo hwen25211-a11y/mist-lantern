@@ -13,7 +13,7 @@ namespace Mist
         public bool shadow;
         public float facing=1, action, actionDuration, recovery;
         public int moveIndex;
-        public Vector2 target;
+        public Vector2 target, knockVelocity;
     }
     [Serializable] public class Danger
     {
@@ -38,7 +38,7 @@ namespace Mist
         public uint random;
         public float hp=120, oil=100, elapsed, attackCd, dodgeCd, dodgeTime, invulnerable, skillCd, jump, jumpVelocity, comboClock, swing, skillFlash;
         public Vector2 pos, direction=Vector2.right, dodgeDir=Vector2.right, lampPos, attackDirection;
-        public float actionAge,actionDuration,windup,hitStop,guardTime,guardCooldown,lampCooldown,charge,resource,hurtFlash,skillBuffer,dodgeBuffer;
+        public float actionAge,actionDuration,windup,hitStop,guardTime,guardCooldown,lampCooldown,charge,resource,hurtFlash,skillBuffer,dodgeBuffer,attackBuffer;
         public bool actionResolved,skillAction,guarding,lampPlaced;
         public int perfectGuards;
         public bool bright=true, elite, settled;
@@ -63,7 +63,10 @@ namespace Mist
         public string kind;
         public Vector2 pos;
         public float amount;
-        public Signal(string k,Vector2 p,float a=0){kind=k;pos=p;amount=a;}
+        public int targetId,actorKind,weapon,combo;
+        public Vector2 direction;
+        public bool strong;
+        public Signal(string k,Vector2 p,float a=0){kind=k;pos=p;amount=a;targetId=0;actorKind=-1;weapon=combo=0;direction=Vector2.right;strong=false;}
     }
     public static class Catalog
     {
@@ -114,7 +117,7 @@ namespace Mist
             s.attackCd=s.skillCd=s.dodgeCd=s.dodgeTime=s.jump=s.jumpVelocity=s.invulnerable=0;
             s.combo=s.rewardCount=0;s.oil=Mathf.Max(55,s.oil);
             s.actionAge=s.actionDuration=s.hitStop=s.guardTime=s.guardCooldown=s.charge=s.hurtFlash=0;
-            s.guarding=s.lampPlaced=false;s.lampCooldown=s.skillBuffer=s.dodgeBuffer=0;
+            s.guarding=s.lampPlaced=false;s.lampCooldown=s.skillBuffer=s.dodgeBuffer=s.attackBuffer=0;
             s.phase=s.room%4==1?Phase.Rest:Phase.Playing;
             if(s.phase==Phase.Rest)return;
             s.wave=1;s.waves=BossRoom?1:s.elite?3:2;SpawnWave();
@@ -134,7 +137,11 @@ namespace Mist
             }
             s.invulnerable=Mathf.Max(s.invulnerable,.8f);
         }
-        void Emit(string kind,Vector2 p,float amount=0){signals.Add(new Signal(kind,p,amount));}
+        void Emit(string kind,Vector2 p,float amount=0,Enemy target=null,bool strong=false){
+            Vector2 direction=target!=null?(kind=="warning"?target.target-target.pos:target.pos-s.pos):s.attackDirection;
+            if(direction.sqrMagnitude<.001f)direction=s.direction;
+            signals.Add(new Signal(kind,p,amount){targetId=target==null?0:target.id,actorKind=target==null?-1:target.kind,weapon=s.weapon,combo=s.combo,direction=direction.normalized,strong=strong});
+        }
         float Rel(int i){return s.relics[i];}
         public float DamageMultiplier{get{return (1+profile.power*.08f+Rel(0)*.15f)*(s.bright?1:1+Rel(6)*.25f);}}
         public float SkillCost{get{return Mathf.Max(12,35*(1-.2f*Rel(7)));}}
@@ -144,6 +151,7 @@ namespace Mist
             signals.Clear();if(s.phase!=Phase.Playing)return;dt=Mathf.Clamp(dt,0,.05f);
             if(s.hitStop>0){s.hitStop=Mathf.Max(0,s.hitStop-dt);dt=0;}
             s.skillBuffer=Mathf.Max(0,s.skillBuffer-dt);s.dodgeBuffer=Mathf.Max(0,s.dodgeBuffer-dt);
+            s.attackBuffer=Mathf.Max(0,s.attackBuffer-dt);if(input.attack&&s.weapon!=1)s.attackBuffer=.16f;
             if(input.skill){if(s.oil>=SkillCost)s.skillBuffer=.5f;else Emit("lowoil",s.pos);}
             if(input.dodge)s.dodgeBuffer=.18f;
             s.elapsed+=dt;s.attackCd=Mathf.Max(0,s.attackCd-dt);s.skillCd=Mathf.Max(0,s.skillCd-dt);
@@ -169,7 +177,7 @@ namespace Mist
             if(s.dodgeTime>0){s.dodgeTime=Mathf.Max(0,s.dodgeTime-dt);s.pos=Bound(s.pos+s.dodgeDir*13*dt);}
             else
             {
-                float mobility=s.actionDuration>0?.35f:s.guarding?.4f:s.charge>0?.45f:1;
+                float mobility=s.actionDuration>0?(s.weapon==2?.65f:s.weapon==0?.5f:.28f):s.guarding?.4f:s.charge>0?.45f:1;
                 s.pos=Bound(s.pos+move*(4.5f+Rel(4)*.36f)*mobility*dt);
                 if(move.sqrMagnitude>.01f&&s.actionDuration<=0)s.direction=move.normalized;
                 if(s.actionDuration<=0&&!s.guarding)
@@ -178,7 +186,7 @@ namespace Mist
                     else if(s.attackCd<=0)
                     {
                         if(s.weapon==1){if(input.attack){s.charge+=dt;if(s.charge>=.7f)BeginAttack(false);}else if(s.charge>0)BeginAttack(false);}
-                        else if(input.attack)BeginAttack(false);
+                        else if(s.attackBuffer>0)BeginAttack(false);
                     }
                 }
             }
@@ -201,6 +209,7 @@ namespace Mist
             foreach(var e in s.enemies)
             {
                 e.flash=Mathf.Max(0,e.flash-dt);e.stun=Mathf.Max(0,e.stun-dt);e.action=Mathf.Max(0,e.action-dt);e.recovery=Mathf.Max(0,e.recovery-dt);
+                if(e.hp>0){e.pos=Bound(e.pos+e.knockVelocity*dt);e.knockVelocity*=Mathf.Exp(-12*dt);if(e.knockVelocity.sqrMagnitude<.0001f)e.knockVelocity=Vector2.zero;}
                 if(e.hp<=0||e.stun>0||e.action>0||e.recovery>0)continue;
                 bool bait=s.lampPlaced&&s.bright&&(e.kind==1||e.kind==3)&&Vector2.Distance(e.pos,s.lampPos)<5;
                 Vector2 target=bait?s.lampPos:s.pos,delta=target-e.pos;float distance=delta.magnitude;e.facing=delta.x>=0?1:-1;e.clock-=dt;
@@ -218,7 +227,7 @@ namespace Mist
                     h.hit=true;
                     if(InDanger(s.pos,h)&&s.jump<.6f)Hurt(h.damage);
                     if(h.lampTarget&&s.lampPlaced&&InDanger(s.lampPos,h)){s.oil=Mathf.Max(0,s.oil-12);Emit("lampHit",s.lampPos);}
-                    Emit("impact",h.pos,h.radius);
+                    Emit("impact",h.pos,h.kind==0?h.radius:h.width,s.enemies.Find(e=>e.id==h.owner));
                 }
                 if(h.age>h.wait+.4f)s.dangers.RemoveAt(i);
             }
@@ -243,7 +252,7 @@ namespace Mist
         }
         void BeginAttack(bool skill)
         {
-            Aim();s.attackDirection=s.direction;s.combo=s.combo%3+1;s.comboClock=1.5f;s.skillAction=skill;s.actionAge=0;s.actionResolved=false;
+            Aim();s.attackDirection=s.direction;s.combo=s.combo%3+1;s.comboClock=1.5f;s.skillAction=skill;s.actionAge=0;s.actionResolved=false;s.attackBuffer=0;
             s.windup=skill?(s.weapon==1?.35f:.18f):s.weapon==0?.09f:s.weapon==1?.19f:.12f;
             s.actionDuration=skill?.65f:s.weapon==0?(s.combo==3?.48f:.34f):s.weapon==1?.62f:.43f;
             s.attackCd=s.actionDuration;s.swing=s.actionDuration;Emit("windup",s.pos);
@@ -266,9 +275,9 @@ namespace Mist
                 {
                     Vector2 delta=e.pos-s.pos;
                     if(e.hp>0&&delta.magnitude<range+(e.kind>=4?.8f:.3f)&&(skill&&s.weapon==1||Vector2.Dot(delta.normalized,direction)>-.15f))
-                    {Hit(e,damage,skill);e.pos=Bound(e.pos+delta.normalized*(e.kind>=4?(s.weapon==1?.12f:0):s.weapon==1?.65f:.12f));hit=true;}
+                    {Hit(e,damage,skill);hit=true;}
                 }
-                if(hit)s.hitStop=skill||s.weapon==1?.065f:.035f;
+                if(hit)s.hitStop=Mathf.Max(s.hitStop,skill||s.weapon==1?.085f:s.combo==3?.07f:.045f);
                 if(skill&&s.weapon==0)s.resource=0;
                 if(s.combo==3&&Rel(8)>0){foreach(var e in s.enemies)if(e.hp>0&&Vector2.Distance(e.pos,s.pos)<3.2f)Hit(e,8*Rel(8),false);Emit("burst",s.pos);}
             }
@@ -281,12 +290,17 @@ namespace Mist
             if(e.shadow)damage*=lit?1.35f+.35f*Rel(3):.7f;
             bool shield=e.kind==1&&e.stun<=0&&!skill&&s.weapon!=1&&!lit;
             if(shield)damage*=.45f;
-            e.hp=Mathf.Max(0,e.hp-damage);e.flash=.2f;
+            e.hp=Mathf.Max(0,e.hp-damage);e.flash=.16f;
+            bool strong=skill||s.weapon==1||s.combo==3;
+            Vector2 push=(e.pos-s.pos).sqrMagnitude>.001f?(e.pos-s.pos).normalized:s.direction;
+            float impulse=e.kind>=4?(s.weapon==1?.65f:0):shield?.4f:s.weapon==1?6.2f:strong?3.4f:1.7f;
+            e.knockVelocity=push*impulse;
+            s.hitStop=Mathf.Max(s.hitStop,shield?.018f:s.weapon==2?.022f:strong?.075f:.045f);
             bool stagger=e.kind<4&&!shield||skill&&s.weapon==1;
-            if(stagger){e.stun=Mathf.Max(e.stun,s.weapon==1?.65f+Rel(10)*.15f:.14f);if(s.weapon==1||skill){e.action=0;s.dangers.RemoveAll(h=>h.owner==e.id&&!h.hit);s.oil=Mathf.Min(100,s.oil+Rel(0)*2);Emit("break",e.pos);}}
+            if(stagger){e.stun=Mathf.Max(e.stun,s.weapon==1?.65f+Rel(10)*.15f:.14f);if(s.weapon==1||skill){e.action=0;s.dangers.RemoveAll(h=>h.owner==e.id&&!h.hit);s.oil=Mathf.Min(100,s.oil+Rel(0)*2);Emit("break",e.pos,0,e,true);}}
             s.resource=Mathf.Min(100,s.resource+(s.weapon==2?18:8));if(lit&&Rel(2)>0)s.oil=Mathf.Min(100,s.oil+Rel(2)*.8f);
-            Emit(shield?"block":e.shadow&&lit?"reveal":"hit",e.pos,damage);
-            if(e.hp<=0){s.kills++;s.oil=Mathf.Min(100,s.oil+5);s.dangers.RemoveAll(h=>h.owner==e.id&&!h.hit);Emit("kill",e.pos);}
+            Emit(shield?"block":e.shadow&&lit?"reveal":"hit",e.pos,damage,e,strong);
+            if(e.hp<=0){s.kills++;s.oil=Mathf.Min(100,s.oil+5);s.dangers.RemoveAll(h=>h.owner==e.id&&!h.hit);Emit("kill",e.pos,0,e,strong);}
         }
         public void Hurt(float damage)
         {
@@ -324,7 +338,7 @@ namespace Mist
                 else if(step==1){for(int i=0;i<(rage?6:4);i++){float a=i*6.283f/(rage?6:4);AddDanger(e,new Vector2(Mathf.Cos(a)*4.5f,Mathf.Sin(a)*2),1.45f,wait+i*.12f,22);}}
                 else{AddDanger(e,e.target,2,wait,26);AddDanger(e,e.pos,2.7f,wait+.5f,26);}
             }
-            Emit("warning",e.pos,step);
+            Emit("warning",e.pos,step,e);
         }
         public void RollOffers()
         {

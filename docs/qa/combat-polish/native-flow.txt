@@ -1,0 +1,92 @@
+MIST_PHASE room=0 phase=Playing hp=156.0 kills=0
+MIST_RUN_BEGIN seed=1727069451 weapon=1
+MIST_PHASE room=0 phase=Playing hp=156.0 kills=5
+MIST_PHASE room=0 phase=Reward hp=146.0 kills=6
+MIST_PHASE room=0 phase=Route hp=146.0 kills=6
+MIST_PHASE room=1 phase=Rest hp=146.0 kills=6
+MIST_PHASE room=1 phase=Route hp=146.0 kills=6
+MIST_PHASE room=2 phase=Playing hp=146.0 kills=6
+MIST_PHASE room=2 phase=Playing hp=116.0 kills=8
+MIST_PHASE room=2 phase=Playing hp=66.0 kills=12
+MIST_PHASE room=2 phase=Playing hp=102.0 kills=12
+MIST_PHASE room=2 phase=Reward hp=110.0 kills=14
+MIST_PHASE room=2 phase=Route hp=110.0 kills=14
+MIST_PHASE room=3 phase=Playing hp=110.0 kills=14
+MIST_PHASE room=3 phase=Reward hp=156.0 kills=15
+MIST_PHASE room=3 phase=Reward hp=156.0 kills=15
+MIST_PHASE room=3 phase=Route hp=176.0 kills=15
+MIST_PHASE room=4 phase=Playing hp=176.0 kills=15
+MIST_PHASE room=4 phase=Playing hp=137.0 kills=18
+MIST_PHASE room=4 phase=Playing hp=111.0 kills=22
+MIST_PHASE room=4 phase=Reward hp=119.0 kills=23
+MIST_PHASE room=4 phase=Route hp=119.0 kills=23
+MIST_PHASE room=5 phase=Rest hp=119.0 kills=23
+MIST_PHASE room=5 phase=Route hp=174.0 kills=23
+MIST_PHASE room=6 phase=Playing hp=174.0 kills=23
+MIST_PHASE room=6 phase=Playing hp=135.0 kills=27
+MIST_PHASE room=6 phase=Playing hp=96.0 kills=30
+MIST_PHASE room=6 phase=Lost hp=0.0 kills=30
+MIST_PERFORMANCE active_fps=58.6 worst_frame_ms=184.5 allocated_mb=135
+MIST_PHASE room=6 phase=Lost hp=0.0 kills=30
+MIST_PERFORMANCE active_fps=58.6 worst_frame_ms=184.5 allocated_mb=136
+MIST_PHASE room=0 phase=Playing hp=156.0 kills=0
+MIST_RUN_BEGIN seed=1116140156 weapon=2
+MIST_PHASE room=0 phase=Reward hp=146.0 kills=6
+MIST_PHASE room=0 phase=Route hp=146.0 kills=6
+MIST_PHASE room=1 phase=Rest hp=146.0 kills=6
+MIST_PHASE room=1 phase=Route hp=146.0 kills=6
+MIST_PHASE room=2 phase=Playing hp=146.0 kills=6
+MIST_PHASE room=2 phase=Lost hp=0.0 kills=12
+MIST_PERFORMANCE active_fps=58.1 worst_frame_ms=1001.4 allocated_mb=139
+MIST_PHASE room=2 phase=Lost hp=0.0 kills=12
+MIST_PERFORMANCE active_fps=58.1 worst_frame_ms=1001.4 allocated_mb=139
+MIST_PHASE room=0 phase=Playing hp=156.0 kills=0
+MIST_RUN_BEGIN seed=1097819237 weapon=2
+MIST_PHASE room=0 phase=Playing hp=156.0 kills=3
+MIST_PHASE room=0 phase=Reward hp=146.0 kills=6
+MIST_PHASE room=0 phase=Reward hp=146.0 kills=6
+MIST_PHASE room=0 phase=Route hp=146.0 kills=6
+MIST_PHASE room=1 phase=Rest hp=146.0 kills=6
+MIST_PHASE room=1 phase=Route hp=146.0 kills=6
+MIST_PHASE room=2 phase=Playing hp=146.0 kills=6
+MIST_PHASE room=2 phase=Playing hp=146.0 kills=11
+MIST_PHASE room=2 phase=Reward hp=154.0 kills=14
+MIST_PHASE room=2 phase=Reward hp=154.0 kills=14
+MIST_PHASE room=2 phase=Route hp=154.0 kills=14
+MIST_PHASE room=3 phase=Playing hp=154.0 kills=14
+MIST_PHASE room=3 phase=Reward hp=146.0 kills=15
+MIST_PHASE room=3 phase=Reward hp=146.0 kills=15
+MIST_PHASE room=3 phase=Route hp=166.0 kills=15
+MIST_PHASE room=4 phase=Playing hp=166.0 kills=15
+MIST_PHASE room=4 phase=Playing hp=166.0 kills=22
+MIST_PHASE room=4 phase=Reward hp=174.0 kills=23
+MIST_PHASE room=4 phase=Reward hp=174.0 kills=23
+MIST_PHASE room=4 phase=Route hp=174.0 kills=23
+MIST_PHASE room=5 phase=Rest hp=174.0 kills=23
+MIST_PHASE room=5 phase=Route hp=174.0 kills=23
+MIST_PHASE room=6 phase=Playing hp=174.0 kills=23
+MIST_PHASE room=6 phase=Reward hp=130.0 kills=33
+MIST_PHASE room=6 phase=Reward hp=130.0 kills=33
+MIST_PHASE room=6 phase=Route hp=130.0 kills=33
+MIST_PHASE room=7 phase=Playing hp=130.0 kills=33
+MIST_PHASE room=7 phase=Reward hp=176.0 kills=34
+MIST_PHASE room=7 phase=Reward hp=176.0 kills=34
+MIST_PHASE room=7 phase=Route hp=196.0 kills=34
+MIST_PHASE room=8 phase=Playing hp=196.0 kills=34
+MIST_PHASE room=8 phase=Reward hp=156.0 kills=44
+MIST_PHASE room=8 phase=Reward hp=156.0 kills=44
+MIST_PHASE room=8 phase=Route hp=156.0 kills=44
+MIST_PHASE room=9 phase=Rest hp=156.0 kills=44
+MIST_PHASE room=9 phase=Route hp=196.0 kills=44
+MIST_PHASE room=10 phase=Playing hp=196.0 kills=44
+MIST_PHASE room=10 phase=Playing hp=164.0 kills=54
+MIST_PHASE room=10 phase=Reward hp=172.0 kills=56
+MIST_PHASE room=10 phase=Reward hp=172.0 kills=56
+MIST_PHASE room=10 phase=Route hp=192.0 kills=56
+MIST_PHASE room=11 phase=Playing hp=192.0 kills=56
+MIST_PHASE room=11 phase=Won hp=172.0 kills=57
+MIST_PERFORMANCE active_fps=54.5 worst_frame_ms=1001.4 allocated_mb=168
+MIST_PHASE room=11 phase=Won hp=172.0 kills=57
+MIST_PERFORMANCE active_fps=54.5 worst_frame_ms=1001.4 allocated_mb=168
+MIST_PHASE room=0 phase=Playing hp=168.0 kills=0
+MIST_RUN_BEGIN seed=115754249 weapon=0

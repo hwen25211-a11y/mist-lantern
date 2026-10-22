@@ -21,7 +21,7 @@ namespace Mist.Editor
             Debug.Log("RELEASE_PREPARATION_OK");
         }
 
-        static void CleanUnusedGeneratedAssets()
+        public static void CleanUnusedGeneratedAssets()
         {
             var all=AssetDatabase.GetAllAssetPaths();
             var roots=all.Where(p=>p.StartsWith("Assets/Resources/")||p.EndsWith(".prefab")||p.EndsWith(".unity")).ToArray();

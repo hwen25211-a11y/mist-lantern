@@ -497,7 +497,7 @@ namespace Mist
             foreach(var mf in root.GetComponentsInChildren<MeshFilter>()){
                 var renderer=mf.GetComponent<MeshRenderer>();if(!renderer||!renderer.enabled)continue;
                 var anchor=mf.transform.parent;
-                while(anchor&&anchor!=root.transform&&anchor.name!="Rig"&&anchor.name!="Body"&&anchor.name!="Head"&&!anchor.name.StartsWith("Arm")&&!anchor.name.StartsWith("Leg")&&!anchor.name.StartsWith("Wing")&&anchor.name!="ScarfTail"&&anchor.name!="Lantern"&&anchor.name!="Forearm"&&anchor.name!="Shin")anchor=anchor.parent;
+                while(anchor&&anchor!=root.transform&&anchor.name!="Rig"&&anchor.name!="Body"&&anchor.name!="Head"&&!anchor.name.StartsWith("Arm")&&!anchor.name.StartsWith("Leg")&&!anchor.name.StartsWith("Wing")&&anchor.name!="ScarfTail"&&anchor.name!="Lantern"&&anchor.name!="Weapon"&&anchor.name!="Forearm"&&anchor.name!="Shin")anchor=anchor.parent;
                 if(!anchor)anchor=root.transform;var mat=renderer.sharedMaterial;
                 string key=anchor.GetInstanceID()+"_"+mat.GetFloat("_Metallic")+"_"+mat.GetFloat("_Smoothness")+"_"+mat.GetFloat("_SurfaceType")+"_"+mat.GetColor("_EmissionColor");
                 if(!groups.ContainsKey(key)){groups[key]=new List<MeshFilter>();anchors[key]=anchor;sourceMaterials[key]=mat;}groups[key].Add(mf);

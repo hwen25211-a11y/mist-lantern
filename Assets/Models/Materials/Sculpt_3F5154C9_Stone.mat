@@ -33,12 +33,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _CavityStrength: 1
+    - _CraftStrength: 1
+    - _Dissolve: 0
+    - _ImpactFlash: 0
     - _Metallic: 0
     - _OutlineWidth: 0.004
     - _Smoothness: 0.06
     - _SurfaceType: 1
+    - _ToonSkin: 0
     m_Colors:
-    - _Color: {r: 0.24784315, g: 0.316, b: 0.32839218, a: 0.79}
+    - _Color: {r: 0.24784313, g: 0.31599998, b: 0.32839215, a: 0.78999996}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Outline: {r: 0.038, g: 0.052, b: 0.055, a: 1}
   m_BuildTextureStacks: []

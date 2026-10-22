@@ -73,17 +73,56 @@ namespace Mist
             Panel("Gabled roof solid",q,new[]{P(-width*.57f,height+.05f),P(0,height+width*.55f),P(width*.57f,height+.05f)},.65f,2.1f,.035f,C("253F4B"),Finish.Stone);
             for(int j=0;j<5;j++)Curve("Raised roof tile course",q,C("385663"),Finish.Stone,.028f,V(-width*.5f*(1-j/5f),height+.14f+j*width*.09f,-.44f),V(width*.5f*(1-j/5f),height+.14f+j*width*.09f,-.44f));
         }
+        static void ArenaFloor(Transform p,int area,Color stone,System.Random random)
+        {
+            // Keep raised decoration outside the traversable strip. These are flush
+            // surfaces, so the visible paving never implies an invisible obstacle.
+            for(int row=0;row<17;row++)for(int col=0;col<19;col++){
+                float x=(col-9)*1.65f+(row%2)*.72f,z=(row-9)*1.14f;
+                bool garden=area==1;float h=.065f+(float)random.NextDouble()*.018f;
+                float jitter=garden?.065f:.012f;float dx=((float)random.NextDouble()-.5f)*jitter,dz=((float)random.NextDouble()-.5f)*jitter;
+                Color color=stone*(.70f+random.Next(7)*.018f);
+                if(garden&&Mathf.Abs(x)>5.3f&&((col+row)%4==0))color=C("35473C");
+                if(area==2)color=(row%4==0?C("414852"):C("3A424A"))*(.92f+random.Next(5)*.025f);
+                var slab=Block(garden?"Settled garden flagstone":area==2?"Workshop slate plate":"Worn bridge limestone",p,V(x+dx,-h*.5f,z+dz),V(garden?1.53f:1.61f,h,garden?1.03f:1.1f),color,Finish.Stone);
+                slab.transform.localEulerAngles=V(0,((float)random.NextDouble()-.5f)*(garden?4.3f:1.2f),0);
+                if((row*19+col)%23==0)Curve("Hairline surface fracture",p,stone*.43f,Finish.Stone,.008f,V(x-.5f,.002f,z-.3f),V(x-.2f,.004f,z+.05f),V(x-.3f,.003f,z+.39f));
+                if(garden&&((row*19+col)%7==0)&&Mathf.Abs(z)>2.3f){
+                    var moss=Block("Moss within paving joint",p,V(x+.76f,.001f,z),V(.055f,.012f,.7f),C("475B3D"),Finish.Cloth);
+                    moss.transform.localEulerAngles=V(0,(col%3-1)*5,0);
+                }
+            }
+            if(area==0){
+                foreach(float z in new[]{-4.0f,4.0f}){
+                    Block("Inset pale coping course",p,V(0,.008f,z),V(30,.025f,.15f),C("586A69"),Finish.Stone);
+                    for(int i=0;i<13;i++){float x=(i-6)*2.3f;Block("Rainwater drain recess",p,V(x,.012f,z-.22f),V(.66f,.018f,.22f),C("263B40"),Finish.Iron);for(int k=0;k<5;k++)Block("Drain iron rib",p,V(x+(k-2)*.12f,.029f,z-.22f),V(.032f,.014f,.23f),C("465957"),Finish.Iron);}
+                }
+                // Low contrast ward seal belongs to the bridge masonry, not a danger marker.
+                Ring("Bridge ward stone inlay",p,V(0,.012f,0),2.25f,.025f,C("526260"),Finish.Stone,V(90,0,0));
+                for(int side=-1;side<=1;side+=2)Curve("Inlaid path guide",p,C("526260"),Finish.Stone,.018f,V(side*2.25f,.012f,0),V(side*8.8f,.012f,0));
+            }else if(area==1){
+                for(int i=0;i<9;i++){
+                    float x=(i-4)*3.0f;var bed=N("Sunken overgrown garden bed",p,V(x,-.025f,4.55f));
+                    Block("Dark garden soil",bed,V(0,0),V(2.55f,.035f,.72f),C("293E32"),Finish.Stone);
+                    for(int j=0;j<5;j++){float xx=(j-2)*.44f;Leaf(bed,V(xx,.045f,(j%2)*.22f),.30f+(j%3)*.07f,i*31+j*57,C(j%2==0?"68774D":"486743"));}
+                    for(int j=0;j<3;j++){float xx=(j-1)*.7f;Curve("Fern curved stem",bed,C("65724B"),Finish.Wood,.015f,V(xx,.03f),V(xx+.1f,.30f),V(xx+.24f,.48f));for(int leaf=0;leaf<3;leaf++)Leaf(bed,V(xx+.04f*leaf,.13f+leaf*.09f),.19f,i*37+leaf*40,C("687D50"));}
+                }
+                for(int i=0;i<8;i++){float x=(i-3.5f)*3.5f;var leaf=Panel("Fallen ochre leaf",p,new[]{P(-.055f,0),P(.02f,.18f),P(.08f,.06f),P(.025f,-.08f)},0,.008f,.01f,C(i%2==0?"777345":"696A42"),Finish.Cloth);leaf.transform.localPosition=V(x,.018f,i%2==0?-3.4f:3.6f);leaf.transform.localEulerAngles=V(90,i*51,0);}
+            }else{
+                foreach(float radius in new[]{1.6f,2.9f,4.2f})Ring("Flush astrolabe brass inlay",p,V(0,.012f,.3f),radius,.019f,C("6D6753"),Finish.Brass,V(90,0,0));
+                for(int i=0;i<48;i++){float a=i*Mathf.PI/24;var mark=Block("Engraved hour index",p,V(Mathf.Sin(a)*3.98f,.014f,.3f+Mathf.Cos(a)*3.98f),V(.024f,.012f,i%4==0?.30f:.13f),C("69634F"),Finish.Brass);mark.transform.localEulerAngles=V(0,i*7.5f,0);}
+                foreach(float z in new[]{-4.2f,4.25f}){
+                    Block("Recessed service channel",p,V(0,.008f,z),V(29,.02f,.46f),C("242F37"),Finish.Iron);
+                    for(int i=0;i<87;i++)Block("Workshop grate bar",p,V((i-43)*.33f,.028f,z),V(.035f,.035f,.43f),C("535858"),Finish.Iron);
+                    for(int i=0;i<14;i++)Stud(p,V((i-6.5f)*2,.04f,z-.27f),.029f);
+                }
+            }
+        }
         public static GameObject Stage(int area)
         {
             var root=Models.Root("Sculpted environment "+Catalog.Areas[area]);var p=root.transform;var random=new System.Random(821+area);Color stone=area==0?C("50666A"):area==1?C("40564D"):C("4E555F");
             Block("Solid arena foundation",p,V(0,-.38f,-2),V(44,.65f,21),stone*.55f,Finish.Stone);
-            // Large low-relief slabs keep the combat area readable; their bevels cast real shadows.
-            for(int row=0;row<17;row++)for(int col=0;col<19;col++){
-                float x=(col-9)*1.65f+(row%2)*.72f,z=(row-9)*1.14f;float h=.065f+(float)random.NextDouble()*.018f;
-                var slab=Block("Bevelled paving slab",p,V(x,-h*.5f,z),V(1.61f,h,1.1f),stone*(.69f+random.Next(7)*.02f),Finish.Stone);
-                slab.transform.localEulerAngles=V(0,(float)random.NextDouble()*1.2f-.6f,0);
-                if((row*19+col)%23==0)Curve("Paving fissure",p,stone*.36f,Finish.Stone,.008f,V(x-.5f,.002f,z-.3f),V(x-.2f,.004f,z+.05f),V(x-.3f,.003f,z+.39f));
-            }
+            ArenaFloor(p,area,stone,random);
             for(int i=0;i<9;i++){
                 float x=(i-4)*3.2f,z=5.2f+(i%2)*.12f;
                 if(area!=1){Column(p,V(x,0,z),i%2==0?1.95f:1.08f,stone,i);if(i%2==0)Lantern(p,V(x,1.98f,z),.9f);if(i<8){StoneBlock(p,V(x+1.6f,.22f,z),V(2.47f,.44f,.54f),i,stone);Fence(p,x+1.6f,z,2.47f,C("263E43"));}}
