@@ -6,10 +6,12 @@ Unity 2022.3.62f3c1 / C#，中文单机 2.5D 动作 Rogue-lite。
 
 ## 启动
 
-- macOS：`Build/macOS/雾灯遗城.app`。
-- 浏览器：运行 `python3 Tools/preview.py`，打开 http://127.0.0.1:8920 。保持这个地址和端口，存档才能延续。
-- 源工程：Unity Hub 打开本目录，使用 `Assets/Scenes/MistLantern.unity`；`ModelGallery.unity` 展示可编辑模型。
-- 交付包位于 `release`，版本以包名和 `BUILD-INFO.txt` 为准。
+- macOS 直接试玩：[下载 v1.2.0 Mac 应用 ZIP](https://github.com/hwen25211-a11y/mist-lantern/releases/download/v1.2.0/MistLantern-v1.2.0-macOS.zip)，解压后运行 `雾灯遗城.app`，无需安装 Unity。支持 Apple Silicon 和 Intel Mac。
+- 源工程：Unity Hub 使用 2022.3.62f3c1 打开本目录，主场景为 `Assets/Scenes/MistLantern.unity`；`ModelGallery.unity` 展示可编辑模型。
+- 自行构建 Mac 版：执行 `Tools/build.sh mac`，生成 `Build/macOS/雾灯遗城.app`。
+- 自行构建浏览器版：先执行 `Tools/build.sh web`，再运行 `python3 Tools/preview.py`，打开 http://127.0.0.1:8920 。保持这个地址和端口，存档才能延续。
+
+`Build/` 和 `release/` 是本地生成目录，不包含在 Git 源码中。已发布的可玩包与校验文件见 [GitHub Releases](https://github.com/hwen25211-a11y/mist-lantern/releases/tag/v1.2.0)；GitHub 的 “Source code” 下载项是源码归档。
 
 v1.2 增加独立武器动作、真实刀刃轨迹、受击与死亡过渡、平滑击退、倒计时危险区和紧凑战斗 HUD，详见 [本轮打磨](docs/COMBAT-POLISH.md)。
 
